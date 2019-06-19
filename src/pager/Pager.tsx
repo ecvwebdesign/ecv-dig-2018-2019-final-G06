@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import {PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator} from 'rn-viewpager';
 import UploadPicture from '../uplaud/UplaodPicture';
+import MapShops from '../map/MapShop';
 export interface State {
 }
 
@@ -64,8 +65,8 @@ export default class ViewPager extends Component<Props, State> {
                 style={{flex:1, paddingTop:0, backgroundColor:'white'}}
                 indicator={this._renderTabIndicator()}
               >
-                <View style={styles.centerCtn}>
-                  <Text>1</Text>
+                 <View style={styles.centerCtn}>
+                    <MapShops />
                   </View>
    
                   <View style={styles.centerCtn}>  
