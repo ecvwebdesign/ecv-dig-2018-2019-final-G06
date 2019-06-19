@@ -11,6 +11,7 @@ const backgroundImage = require('../assets/img/shop.jpg');
 
 export interface State {
     avatarSource?: string,
+    imageProject: ''
 }
 
 export interface ProjectItemProps {

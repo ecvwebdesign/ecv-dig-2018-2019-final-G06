@@ -9,10 +9,13 @@ import {
   Dimensions,
   Alert,
   TouchableHighlight,
+  TouchableOpacity
 } from "react-native";
 import MapView , { Marker, UrlTile } from "react-native-maps";
 import MyLocationMapMarker from "./MyLocationMapMarker";
 import SingleShop from "./SingleShop";
+import AwesomeAlert from 'react-native-awesome-alerts';
+
 
 
 const { width, height } = Dimensions.get("window");
@@ -26,59 +29,57 @@ const LONGITUDE = -0.5324;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-interface MapTestProps {
-  onProject: ProjectCallback;
-}
 
-class Position {
-  constructor(latitude, longitude) {
-    this.latitude = latitude;
-    this.longitude = longitude;
+export interface State {
+    showAlert?: boolean,
+    markers?: any,
+    region?: any,
   }
-}
 
-
-export default class MapTest extends Component<MapTestProps> {
+export default class MapTest extends Component<State> {
+    state: State;
   constructor(props:any){
     super(props);
-
+    this.state = { 
+        showAlert: false,
+        markers: [
+            {
+              coordinate: {
+                latitude: 44.804896,
+                longitude: -1.220573,
+              },
+              title: "234 avenue de Gaulle",
+              localisation: "Cap Ferret, France",
+            },
+            {
+              coordinate: {
+                latitude: 45.590060,
+                longitude: -1.176335,
+              },
+              title: "Phare Rouge",
+              localisation: "Soulac-sur-mer, France",
+            },
+            {
+              coordinate: {
+                latitude: 43.6505726,
+                longitude: -1.4390466,
+              },
+              title: "Casino",
+              localisation: "Capbreton, France",
+            }
+          ],
+        region: {
+            latitude: 45.52220671242907,
+            longitude: -122.6653281029795,
+            latitudeDelta: 0,
+            longitudeDelta: 0.5,
+        },
+    };
   }
+
   
   scrollView = null;
-  state = {
-    markers: [
-      {
-        coordinate: {
-          latitude: 44.804896,
-          longitude: -1.220573,
-        },
-        title: "234 avenue de Gaulle",
-        localisation: "Cap Ferret, France",
-      },
-      {
-        coordinate: {
-          latitude: 45.590060,
-          longitude: -1.176335,
-        },
-        title: "Phare Rouge",
-        localisation: "Soulac-sur-mer, France",
-      },
-      {
-        coordinate: {
-          latitude: 43.6505726,
-          longitude: -1.4390466,
-        },
-        title: "Casino",
-        localisation: "Capbreton, France",
-      }
-    ],
-    region: {
-      latitude: 45.52220671242907,
-      longitude: -122.6653281029795,
-      latitudeDelta: 0,
-      longitudeDelta: 0.5,
-    },
-  };
+ 
 
   componentWillMount() {
     this.index = 0;
@@ -136,8 +137,23 @@ export default class MapTest extends Component<MapTestProps> {
     }
   }
 
+  showAlert = () => {
+    this.setState({
+      showAlert: true
+    });
+  };
+ 
+  hideAlert = () => {
+    this.setState({
+      showAlert: false
+    });
+  };
+
+
 
   render() {
+    const {showAlert} = this.state;
+
     const { markers, markers_filter } = this.props;
 
     const interpolations = this.state.markers.map((marker, index) => {
@@ -215,12 +231,33 @@ export default class MapTest extends Component<MapTestProps> {
           contentContainerStyle={styles.endPadding}
         >
           {this.state.markers.map((marker, index) => (
-            <SingleShop marker={marker} index={index} scrollView={this.scrollView} onProjectPress={(project) => this.onProject(project)}/>
+            <View>
+                <SingleShop marker={marker} index={index} scrollView={this.scrollView} onProjectPress={(project) => this.onProject(project)} />            
+            </View>  
           ))
           }
         </Animated.ScrollView>
 
+        <TouchableOpacity onPress={() => this.showAlert()} style={{width:40,height:36,backgroundColor:'transparent',position:'absolute', bottom: 0, left: 2, zIndex: 9}}/>
       
+        <AwesomeAlert
+          show={showAlert}
+          showProgress={false}
+          title="262 avenue de Gaulle"
+          message="à 13 minutes en voiture depuis votre localisation."
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={true}
+          showConfirmButton={true}
+          cancelText="Lancer le GPS"
+          confirmText="Fermer"
+          confirmButtonColor="#DD6B55"
+          onCancelPressed={() => {
+            this.hideAlert();
+          }}
+          onConfirmPressed={() => {
+            this.hideAlert();
+          }}
+        />
       </View>
     );
   }
