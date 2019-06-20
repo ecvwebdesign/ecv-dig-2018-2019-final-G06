@@ -84,7 +84,7 @@ export default class UploadPicture extends Component<Props, State> {
 
                 </View>
 
-                <Text style={styles.titleImageAfter}>Nike Air Force One - 2019</Text>
+                <Text style={styles.titleImageAfter}>Hublot - Classic Fusion</Text>
                 <Text style={styles.descriptionImageAfter}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 </Text>

@@ -9,11 +9,11 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Alert, ScrollView, FlatList, Text, View, TouchableOpacity, Image} from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import BarCodeScanner from './BarCodeScanner';
 
 const backgroundImageShop = require('../assets/img/shop.jpg');
 const backgroundProduct = require('../assets/img/airforce.jpg');
 const imageBackground = require('../assets/img/background_empty.jpg');
+const flashImage = require('../assets/img/barcode.png');
 
 export interface State {
     haveData?: boolean;
@@ -21,7 +21,7 @@ export interface State {
 }
 
 type Props = {};
-export default class BarCode extends Component<Props, State> {
+export default class BarCodeScanner extends Component<Props, State> {
   state: State;
   setState: any;
 
@@ -59,27 +59,88 @@ export default class BarCode extends Component<Props, State> {
         return (
           <View style={styles.container}>
 
-                {
-                    this.state.takeBarCode ? (
-                         <BarCodeScanner />
-                    ) : (
-                    <View style={styles.ctnContent}>
-                        <Image style={styles.avatarImage} source={imageBackground} />
-            
-                        <View style={styles.centerMiddle}>
-                            <Text style={styles.colorBlack}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</Text>
-            
-                            <TouchableOpacity onPress={this.takeBarCode} style={styles.backgroundImageUplaud}>
-                            <View>
-                                <Text style={[styles.colorBlack, styles.buttonBlue, styles.buttonBlueTwo]}>Scanner un code bar</Text>
-                            </View>
-                            </TouchableOpacity> 
-            
+            {
+                this.state.haveData ? (
+                    <View style={styles.containerAfter}>
+                    <ScrollView>
+                    
+                      <View style={{zIndex: 2, width: '100%'}}>
+                    
+                          <View style={styles.ctnImageAfter}>
+                    
+                            <Image style={styles.imageTopAfter} source={backgroundProduct} />
+                            
+                            <TouchableOpacity style={styles.imageTopCloseComponent} onPress={this.closeSingleResult}>
+                              <Image style={{resizeMode: 'contain', width: 17, height: 17, marginLeft: 12}} source={require('../assets/img/cancel.png')} />
+                            </TouchableOpacity>
+                    
+                          </View>
+                    
+                          <Text style={styles.titleImageAfter}>Nike Air Force One - 2019</Text>
+                          <Text style={styles.descriptionImageAfter}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                          </Text>
+                    
+                          <Text style={styles.titleMatche}>63 magasins ont ce produit !</Text>
+                    
+                          <View style={styles.resultCtnMatches}>
+                            <FlatList
+                              data={[{},{}, {}, {}]}
+                              renderItem={({item}) => 
+                                <View style={styles.card}>
+                    
+                                    <Image style={styles.imageListShop} source={backgroundImageShop} />
+                                  
+                                  <View style={{marginRight: 12,}}>
+                                    <Text style={{color: 'black', fontSize: 16, fontWeight: 'bold'}}>Intersport de Mérignac</Text>
+                                    <Text>Ouvert jusqu'à 19 heures 30</Text>
+                                    <Text>à 27 kilomètres de votre position.</Text>
+                                  </View>
+                                </View>
+                              }
+                            />
+                          </View>
+                          
                         </View>
+                    </ScrollView>
                     </View>
-                    )
-                }
-          </View>
+                ) : (
+                    <>
+                        <RNCamera
+                            ref={ref => {
+                            this.camera = ref;
+                            }}
+                            style={styles.preview}
+                            type={RNCamera.Constants.Type.back}
+                            flashMode={RNCamera.Constants.FlashMode.on}
+                            androidCameraPermissionOptions={{
+                            title: 'Permission to use camera',
+                            message: 'We need your permission to use your camera',
+                            buttonPositive: 'Ok',
+                            buttonNegative: 'Cancel',
+                            }}
+                            androidRecordAudioPermissionOptions={{
+                            title: 'Permission to use audio recording',
+                            message: 'We need your permission to use your audio',
+                            buttonPositive: 'Ok',
+                            buttonNegative: 'Cancel',
+                            }}
+                            onGoogleVisionBarcodesDetected={({ barcodes }) => {
+                            console.warn(barcodes);
+                            this.setState({
+                                haveData: true
+                            });
+                            }}
+                        />
+                        <View style={styles.ctnFlash}>
+                            <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
+                              <Image style={styles.imageFlash} source={flashImage} />
+                            </TouchableOpacity>
+                        </View>
+                     </>
+                )
+            }
+         </View>
         );
       }
     
@@ -96,17 +157,29 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F5FCFF',
-
       },
       containerAfter: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
       },
-      ctnContent: {
-        flex:1,
-        alignItems: 'center',
+      ctnFlash: {
+        width: 60,
+        height: 60,
+        position: 'absolute',
+        bottom: 30,
+        backgroundColor: '#004492',
+        borderRadius: 50,
+        left: '43%',
         flexDirection: 'row',
+        alignItems: 'center',
+
+      },
+      imageFlash: {
+        width: 28,
+        height: 28,
+        marginLeft: 16,
+        resizeMode: 'contain',
       },
       avatarImage:{
         width: '100%',
@@ -121,7 +194,6 @@ const styles = StyleSheet.create({
       centerMiddle: {
         zIndex: 2,
         width: '75%',
-        marginLeft: '12.5%'
       },
       backgroundImageUplaud: {
         position: 'relative',
