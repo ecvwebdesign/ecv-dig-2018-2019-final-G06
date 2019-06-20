@@ -11,6 +11,8 @@ import {Platform, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-n
 import {PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator} from 'rn-viewpager';
 import UploadPicture from '../uplaud/UplaodPicture';
 import MapShops from '../map/MapShop';
+import BarCode  from '../barcode/BarCode';
+
 export interface State {
 }
 
@@ -75,7 +77,7 @@ export default class ViewPager extends Component<Props, State> {
                   </View>
 
                   <View style={styles.centerCtn}> 
-                  <Text>3</Text>          
+                    <BarCode />        
                   </View>
 
               </IndicatorViewPager>

@@ -13,8 +13,6 @@ const options = {
 };
 
 const backgroundImageShop = require('../assets/img/shop.jpg');
-
-
 const backgroundImage = require('../assets/img/background_empty.jpg');
 
 export interface State {
@@ -273,6 +271,5 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     borderTopLeftRadius: 4,
     borderBottomLeftRadius: 4,
-   },
-    
+   }
 });
