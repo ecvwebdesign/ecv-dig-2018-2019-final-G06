@@ -17,6 +17,7 @@ const backgroundImage = require('../assets/img/background_empty.jpg');
 
 export interface State {
   avatarSource?: string,
+  avatarSourceTwo?: string,
 }
 
 type Props = {};
@@ -27,6 +28,7 @@ export default class UploadPicture extends Component<Props, State> {
     super(props);
     this.state = {
       avatarSource: '',
+      avatarSourceTwo: '',
     };
   }
 
@@ -54,15 +56,41 @@ export default class UploadPicture extends Component<Props, State> {
     });
   }
 
+  uplaudPictureSecond = () => {
+    ImagePicker.showImagePicker(options, (response) => {
+      console.warn('Response = ', response);
+
+      if (response.didCancel) {
+        console.warn('User cancelled photo picker');
+      } else if (response.error) {
+        console.warn('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.warn('User tapped custom button: ', response.customButton);
+      } else {
+        let source = { uri: response.uri };
+        console.warn(source);
+        // You can also display the image using data:
+        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        this.setState({
+          avatarSourceTwo: source,
+        });
+        Vibration.vibrate(450, false);
+
+      }
+    });
+  }
+
   closeSingleResult = () => {
     this.setState({
-      avatarSource: ''
+      avatarSource: '',
+      avatarSourceTwo: ''
     });
   }
 
   render() {
 
     let icon = this.state.avatarSource ? this.state.avatarSource : backgroundImage;
+    let iconTwo = this.state.avatarSourceTwo ? this.state.avatarSourceTwo : backgroundImage;
  
     return (
       <>
@@ -92,6 +120,7 @@ export default class UploadPicture extends Component<Props, State> {
                 <Text style={styles.titleMatche}>63 magasins ont ce produit !</Text>
 
                 <View style={styles.resultCtnMatches}>
+
                   <FlatList
                     data={[{},{}, {}, {}]}
                     renderItem={({item}) => 
@@ -108,6 +137,7 @@ export default class UploadPicture extends Component<Props, State> {
                       </View>
                     }
                   />
+
                 </View>
                 
               </View>
@@ -116,25 +146,84 @@ export default class UploadPicture extends Component<Props, State> {
 
           ) : (
 
-            <View style={styles.container}>
-            <Image style={styles.avatarImage} source={icon} />
+            <>
 
-            <View style={styles.centerMiddle}>
-              <Text style={styles.colorBlack}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</Text>
-              <TouchableOpacity onPress={this.uplaudPicture} style={styles.backgroundImageUplaud}>
-                <View>
-                   <Text style={[styles.colorBlack, styles.buttonBlue]}>Ajouter une photo</Text>
+            {
+              this.state.avatarSourceTwo ? (
+                <View style={styles.containerAfter}>
+                <ScrollView>
+      
+                  <View style={{zIndex: 2, width: '100%'}}>
+      
+                      <View style={styles.ctnImageAfter}>
+      
+                        <Image style={styles.imageTopAfter} source={iconTwo} />
+                        
+                        <TouchableOpacity style={[styles.imageTopCloseComponent, styles.imageTopCloseComponentTwo]} onPress={this.closeSingleResult}>
+                          <Image style={{resizeMode: 'contain', width: 17, height: 17, marginLeft: 12}} source={require('../assets/img/cancel.png')} />
+                        </TouchableOpacity>
+      
+                      </View>
+      
+                      <Text style={styles.titleImageAfter}>Vans- 2019</Text>
+                      <Text style={styles.descriptionImageAfter}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      </Text>
+      
+                      <Text style={styles.titleMatche}>63 magasins ont ce produit !</Text>
+      
+                      <View style={styles.resultCtnMatches}>
+      
+                        <FlatList
+                          data={[{},{}, {}, {}]}
+                          renderItem={({item}) => 
+                            <View style={styles.card}>
+      
+                                <Image style={styles.imageListShop} source={backgroundImageShop} />
+                              
+                              <View style={{marginRight: 12,}}>
+                                <Text style={{color: 'black', fontSize: 16, fontWeight: 'bold'}}>Intersport de Mérignac</Text>
+                                <Text>Ouvert jusqu'à 19 heures 30</Text>
+                                <Text>à 27 kilomètres de votre position.</Text>
+                              </View>
+      
+                            </View>
+                          }
+                        />
+      
+                      </View>
+                      
+                    </View>
+                </ScrollView>
                 </View>
-              </TouchableOpacity> 
-
-              <TouchableOpacity onPress={this.uplaudPicture} style={styles.backgroundImageUplaud}>
-                <View>
-                    <Text style={[styles.colorBlack, styles.buttonBlue, styles.buttonBlueTwo]}>Scanner un code bar</Text>
+      
+              ) : (
+                <View style={styles.container}>
+                <Image style={styles.avatarImage} source={icon} />
+    
+                <View style={styles.centerMiddle}>
+                  <Text style={styles.colorBlack}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</Text>
+                  <TouchableOpacity onPress={this.uplaudPicture} style={styles.backgroundImageUplaud}>
+                    <View>
+                       <Text style={[styles.colorBlack, styles.buttonBlue]}>Ajouter une photo</Text>
+                    </View>
+                  </TouchableOpacity> 
+    
+                  <TouchableOpacity onPress={this.uplaudPictureSecond} style={styles.backgroundImageUplaud}>
+                    <View>
+                        <Text style={[styles.colorBlack, styles.buttonBlue, styles.buttonBlueTwo, styles.buttonHidden]}>Scanner un code bar</Text>
+                    </View>
+                  </TouchableOpacity> 
+    
                 </View>
-              </TouchableOpacity> 
+              </View> 
+              )
+            }
 
-            </View>
-          </View> 
+
+           
+
+          </>
           
           )
         }
@@ -171,6 +260,9 @@ const styles = StyleSheet.create({
   backgroundImageUplaud: {
     position: 'relative',
   },
+  backgroundImageUplaud: {
+
+  },
   colorBlack: {
     color:'black',
     fontSize: 13,
@@ -200,6 +292,9 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     color: 'white',
     marginTop: 16, 
+  },
+  buttonHidden: {
+    backgroundColor: 'transparent'
   },
   imageTopAfter: {
     flex: 1,
