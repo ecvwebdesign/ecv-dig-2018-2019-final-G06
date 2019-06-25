@@ -146,7 +146,8 @@ export default class Home extends Component<Props, State> {
                     renderItem={this._renderItem}
                     sliderWidth={CARD_WIDTH}
                     itemWidth={300} 
-                    layout={'default'}
+                    layout={'tinder'}
+                    layoutCardOffset={'9'}
                   />
 
                 </View>

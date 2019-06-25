@@ -12,7 +12,8 @@ import {PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndi
 import Home from '../home/Home';
 import UploadPicture from '../uplaud/UplaodPicture';
 import MapShops from '../map/MapShop';
-import BarCode  from '../barcode/BarCode';
+import BarCode from '../barcode/BarCode';
+import SearchAndExplore from '../SearchAndExplore';
 
 export interface State {
 }
@@ -35,6 +36,7 @@ export default class ViewPager extends Component<Props, State> {
       color: '#004492',
     };
 
+
     let tabs = [{
             text: 'Accueil',
             iconSource: require('../assets/img/icons/home-gris.png'),
@@ -44,19 +46,18 @@ export default class ViewPager extends Component<Props, State> {
             iconSource: require('../assets/img/icons/search-gris.png'),
             selectedIconSource: require('../assets/img/icons/search-bleu.png')
         },{
-            text: 'Code barre',
-            iconSource: require('../assets/img/icons/home-gris.png'),
-            selectedIconSource: require('../assets/img/icons/home-bleu.png')
+            iconSource: require('../assets/img/icons/icon-middle.png'),
+            selectedIconSource: require('../assets/img/icons/icon-middle.png')
         },
         {
           text: 'Favoris',
-          iconSource: require('../assets/img/icons/home-gris.png'),
-          selectedIconSource: require('../assets/img/icons/home-bleu.png')
+          iconSource: require('../assets/img/icons/coeur-gris.png'),
+          selectedIconSource: require('../assets/img/icons/coeur-bleu.png')
         },
         {
           text: 'Profil',
-          iconSource: require('../assets/img/icons/home-gris.png'),
-          selectedIconSource: require('../assets/img/icons/home-bleu.png')
+          iconSource: require('../assets/img/icons/account-gris.png'),
+          selectedIconSource: require('../assets/img/icons/account-bleu.png')
         }
       ];
     return <PagerTabIndicator tabs={tabs} selectedIconStyle={style} iconStyle={style} />;
@@ -81,11 +82,13 @@ export default class ViewPager extends Component<Props, State> {
                 indicator={this._renderTabIndicator()}
               >
                  <View style={styles.centerCtn}>
-                    <Home/>
+                 <SearchAndExplore />
+
+                    {/* <Home/> */}
                   </View>
 
                   <View style={styles.centerCtn}>
-                    <MapShops />
+                    <SearchAndExplore />
                   </View>
    
                   <View style={styles.centerCtn}>  
