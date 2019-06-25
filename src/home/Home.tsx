@@ -23,6 +23,7 @@ const images = {
 };
 
 export interface State {
+  entries?: any;
 }
 
 type Props = {};
@@ -34,16 +35,22 @@ export default class Home extends Component<Props, State> {
     this.state = {
       entries: [
         {
-          title: "Nike SB - Canvas",
-          price: "dès 46.90€", 
-        },
-        {
+          image: "../assets/img/airforce.jpg",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
+          avis: '98'
         },
         {
+          image: "../assets/img/airforce.jpg",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
+          avis: '72'
+        },
+        {
+          image: "../assets/img/airforce.jpg",
+          title: "Nike SB - Canvas",
+          price: "dès 46.90€",
+          avis: '56'
         }
       ],
     };
@@ -64,10 +71,24 @@ export default class Home extends Component<Props, State> {
   // )
 
   _renderItem ({item, index}) {
+
+    console.warn(item.avis);
+
+    const style = [styles.card];
+  
+    if(item.avis < 80){
+      style.push(styles.orangeBack);
+    }else if(item.avis < 50){
+      style.push(styles.redDislike);
+    }
+
+    
     return ( 
-        <View style={styles.slide}>
-          <Image source={require('../assets/img/airforce.jpg')} style={{width: '100%', height: 180, resizeMode: 'cover', borderRadius: 5}}/>
-            <Text style={{position: 'absolute', paddingTop: 6, paddingBottom: 6, paddingLeft: 10, paddingRight: 10, backgroundColor: 'green', top: 12, left: 12, borderRadius: 24, color: 'white'}}>98%</Text>
+        <View style={styles.slide} key={index}>
+          <Image source={item.image} style={{width: '100%', height: 180, resizeMode: 'cover', borderRadius: 5}}/>
+            <Text style={[styles.card, style]}>
+              {item.avis}%
+            </Text>
             <Text style={{color: 'black', fontSize: 18, fontWeight: 'bold', marginTop: 12}}>{ item.title }</Text>
             <Text style={{color: '#E30612', fontSize: 14, fontWeight: 'bold', marginTop: 2, marginBottom: 8}}>{ item.price }</Text>
             <Text>42 avis</Text>
@@ -113,7 +134,7 @@ export default class Home extends Component<Props, State> {
     return (
         <View style={styles.container}>
               <View style={{width: '100%', height: 250, position: 'relative'}}>
-                
+
                 <View style={{width: '80%', position: 'absolute', top: 40, left:'10%', zIndex: 9999}}>
                   <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold', marginBottom: 20}}>Bonjour Julien</Text>
                   <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>D'humeur sportive aujourd'hui ?</Text>
@@ -151,6 +172,7 @@ export default class Home extends Component<Props, State> {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      fontFamily: 'OpenSans-Regular'
     },
     contentContainer: {
       flexGrow: 1,
@@ -175,19 +197,38 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 18,
     },
+    card:{
+      position: 'absolute',
+      paddingTop: 6,
+      paddingBottom: 6,
+      paddingLeft: 12,
+      paddingRight: 12,
+      backgroundColor: '#5ACB38',
+      top: 12,
+      left: 12,
+      borderRadius: 24,
+      color: 'white'
+    },
+    orangeBack: {
+      backgroundColor: 'orange'
+    },
+    redDislike: {
+      backgroundColor: '#E30612'
+    },
     titleBlack: {
         fontSize: 24,
         color: "black",
         fontWeight: 'bold',
         marginTop: 24,
         marginBottom: 8,
+        fontFamily: 'OpenSans-Bold'
     },
     colorGrey: {
         fontSize: 16,
         color: '#707070',
         marginBottom: 20
     },
-    slide: {
+    slide: { 
       width: '100%',
       height:'auto',
       borderRadius: 6,
