@@ -261,7 +261,6 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   backgroundImageUplaud: {
-
   },
   colorBlack: {
     color:'black',

@@ -13,6 +13,7 @@ import Home from '../home/Home';
 import UploadPicture from '../uplaud/UplaodPicture';
 import MapShops from '../map/MapShop';
 import BarCode from '../barcode/BarCode';
+import BarCodeScanner from '../barcode/BarCodeScanner';
 import SearchAndExplore from '../SearchAndExplore';
 
 export interface State {
@@ -82,9 +83,7 @@ export default class ViewPager extends Component<Props, State> {
                 indicator={this._renderTabIndicator()}
               >
                  <View style={styles.centerCtn}>
-                 <SearchAndExplore />
-
-                    {/* <Home/> */}
+                    <Home/>
                   </View>
 
                   <View style={styles.centerCtn}>
@@ -92,8 +91,8 @@ export default class ViewPager extends Component<Props, State> {
                   </View>
    
                   <View style={styles.centerCtn}>  
-                
-                    <UploadPicture/>
+                    <BarCodeScanner />        
+                    {/* <UploadPicture/> */}
                   </View>
 
                   <View style={styles.centerCtn}> 

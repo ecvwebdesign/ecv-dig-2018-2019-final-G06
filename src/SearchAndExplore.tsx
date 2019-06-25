@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 40,
+        paddingBottom: 30, 
       },
       textTitle: {
         fontSize: 16,
@@ -170,10 +171,10 @@ const styles = StyleSheet.create({
       containerItem: {
         width: '100%',
         height: 'auto',
-        marginTop: 28,
+        marginTop: 6, 
         justifyContent: 'space-between',
         flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
       },
       item: {
         width: '48%',
