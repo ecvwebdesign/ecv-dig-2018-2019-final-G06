@@ -86,8 +86,7 @@ export default class ViewPager extends Component<Props, State> {
                 indicator={this._renderTabIndicator()}
               >
                  <View style={styles.centerCtn}>
-                    {/* <Home/> */}
-                    <Account/>
+                    <Home/>
                   </View>
 
                   <View style={styles.centerCtn}>
@@ -96,7 +95,6 @@ export default class ViewPager extends Component<Props, State> {
    
                   <View style={styles.centerCtn}>  
                     <BarCodeScanner />        
-                    {/* <UploadPicture/> */}
                   </View>
 
                   <View style={styles.centerCtn}> 
