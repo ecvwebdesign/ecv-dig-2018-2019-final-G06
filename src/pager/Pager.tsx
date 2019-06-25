@@ -30,27 +30,33 @@ export default class ViewPager extends Component<Props, State> {
 
   _renderTabIndicator() {
     const style = {
-      width: 30,
-      height: 30
+      width: 28,
+      height: 28,
+      color: '#004492',
     };
 
     let tabs = [{
-            text: 'À proximité',
+            text: 'Accueil',
             iconSource: require('../assets/img/icons/home-gris.png'),
             selectedIconSource: require('../assets/img/icons/home-bleu.png')
         },{
-            text: 'Rechercher',
-            iconSource: require('../assets/img/tabs/add.png'),
-            selectedIconSource: require('../assets/img/tabs/add-hover.png')
+            text: 'Recherche',
+            iconSource: require('../assets/img/icons/search-gris.png'),
+            selectedIconSource: require('../assets/img/icons/search-bleu.png')
         },{
             text: 'Code barre',
-            iconSource: require('../assets/img/tabs/add.png'),
-            selectedIconSource: require('../assets/img/tabs/add-hover.png')
+            iconSource: require('../assets/img/icons/home-gris.png'),
+            selectedIconSource: require('../assets/img/icons/home-bleu.png')
         },
-        ,{
-          text: 'Code barre',
-          iconSource: require('../assets/img/tabs/add.png'),
-          selectedIconSource: require('../assets/img/tabs/add-hover.png')
+        {
+          text: 'Favoris',
+          iconSource: require('../assets/img/icons/home-gris.png'),
+          selectedIconSource: require('../assets/img/icons/home-bleu.png')
+        },
+        {
+          text: 'Profil',
+          iconSource: require('../assets/img/icons/home-gris.png'),
+          selectedIconSource: require('../assets/img/icons/home-bleu.png')
         }
       ];
     return <PagerTabIndicator tabs={tabs} selectedIconStyle={style} iconStyle={style} />;

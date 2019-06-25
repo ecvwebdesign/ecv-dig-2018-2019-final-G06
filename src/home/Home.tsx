@@ -38,19 +38,22 @@ export default class Home extends Component<Props, State> {
           image: "../assets/img/airforce.jpg",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
-          avis: '98'
+          avis: '98',
+          numberAvis: '34'
         },
         {
           image: "../assets/img/airforce.jpg",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
-          avis: '72'
+          avis: '72',
+          numberAvis: '34'
         },
         {
           image: "../assets/img/airforce.jpg",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
-          avis: '56'
+          avis: '34',
+          numberAvis: '34'
         }
       ],
     };
@@ -72,8 +75,7 @@ export default class Home extends Component<Props, State> {
 
   _renderItem ({item, index}) {
 
-    console.warn(item.avis);
-
+    // console.warn(item.avis);
     const style = [styles.card];
   
     if(item.avis < 80){
@@ -85,24 +87,32 @@ export default class Home extends Component<Props, State> {
     
     return ( 
         <View style={styles.slide} key={index}>
-          <Image source={item.image} style={{width: '100%', height: 180, resizeMode: 'cover', borderRadius: 5}}/>
+          <Image source={require('../assets/img/airforce.jpg')} style={{width: '100%', height: 180, resizeMode: 'cover', borderRadius: 16}}/>
             <Text style={[styles.card, style]}>
               {item.avis}%
             </Text>
-            <Text style={{color: 'black', fontSize: 18, fontWeight: 'bold', marginTop: 12}}>{ item.title }</Text>
-            <Text style={{color: '#E30612', fontSize: 14, fontWeight: 'bold', marginTop: 2, marginBottom: 8}}>{ item.price }</Text>
-            <Text>42 avis</Text>
+
+            <View style={{marginLeft: 18}}>
+              <Text style={{color: 'black', fontSize: 20, fontWeight: 'bold', marginTop: 12}}>{ item.title }</Text>
+              <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginBottom: 4}}>{ item.price }</Text>
+
+              <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}> 
+                <Image source={require('../assets/img/icons/avis-star.png')} style={{width: 100, height: 28, resizeMode: 'contain'}}/>
+                <Text style={{color: '#FCE110', marginLeft: 12, position: 'relative', top: 4}}>{item.numberAvis} avis</Text>
+
+              </View>
+            </View>
 
             <View style={styles.likeOrNot}>
 
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imgAdd} />
-                  <Text>Non merci</Text>
+                <View style={{justifyContent: 'center', alignItems: 'center', marginLeft: 38}}>
+                    <Image source={require('../assets/img/icons/coeur-noir-barre.png')} style={styles.imgAdd} />
+                    <Text style={{color: 'black'}}>Non merci</Text>
                 </View>
 
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{justifyContent: 'center', alignItems: 'center', marginRight: 38}}>
                   <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imgAdd} />
-                  <Text>Merci</Text>
+                  <Text style={{color: 'black'}}>Ajouter !</Text>
                 </View>
 
             </View>
@@ -110,26 +120,6 @@ export default class Home extends Component<Props, State> {
     );
   }
   
-  // renderContent = () => (
-  //         <View style={{width: '100%', marginLeft: '5%', marginBottom: 30, borderTopleftRadius: 60, marginTop: -30, backgroundColor: 'red', position: 'absolute', top: -15, zIndex: 9999}}> 
-  //             <Text style={styles.titleBlack}>Vos matches du jour !</Text>
-  //             <Text style={styles.colorGrey}>Jetez un coup d'oeuil aux produits les plus suceptibles de vous plaire.</Text>
-              
-  //             <Carousel
-  //               ref={(c) => { this._carousel = c; }}
-  //               data={this.state.entries}
-  //               renderItem={this._renderItem}
-  //               sliderWidth={355}
-  //               itemWidth={300} 
-  //               layout={'tinder'}
-  //               layoutCardOffset={`9`}
-  //             />
-
-
-  //         </View>
-  // )
-
-
   render() {
     return (
         <View style={styles.container}>
@@ -156,8 +146,7 @@ export default class Home extends Component<Props, State> {
                     renderItem={this._renderItem}
                     sliderWidth={CARD_WIDTH}
                     itemWidth={300} 
-                    layout={'tinder'}
-                    layoutCardOffset={`9`}
+                    layout={'default'}
                   />
 
                 </View>
@@ -204,8 +193,8 @@ const styles = StyleSheet.create({
       paddingLeft: 12,
       paddingRight: 12,
       backgroundColor: '#5ACB38',
-      top: 12,
-      left: 12,
+      top: 16,
+      left: 16,
       borderRadius: 24,
       color: 'white'
     },
@@ -243,23 +232,23 @@ const styles = StyleSheet.create({
     likeOrNot: {
       borderColor: 'rgba(0,0,0,0)',
       borderRadius: 10.5,
-      shadowColor: "rgba(53, 93, 255, 0.01)",
+      shadowColor: "#000",
       shadowOffset: {
-        width: 4,
-        height: 4
+        width: 0,
+        height: 1,
       },
-      elevation: 3,
-      shadowRadius: 29.5,
-      shadowOpacity: .6,
+      shadowOpacity: 0.80,
+      shadowRadius: 1.41,
+      elevation: 2,
       flexDirection: 'row',
       justifyContent: 'space-between',
-      width: 200,
+      width: '90%',
       height:'auto',
-      paddingTop: 20,
-      paddingBottom: 20,
-      paddingLeft: 20,
-      paddingRight: 20,
-      backgroundColor: 'white'
+      paddingTop: 12,
+      paddingBottom: 12,
+      backgroundColor: 'white',
+      marginLeft: '5%',
+      marginTop: 18, 
     },
     imgAdd: {
       width: 20,
