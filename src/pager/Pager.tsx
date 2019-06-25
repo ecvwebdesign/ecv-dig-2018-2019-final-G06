@@ -16,6 +16,8 @@ import BarCode from '../barcode/BarCode';
 import BarCodeScanner from '../barcode/BarCodeScanner';
 import SearchAndExplore from '../SearchAndExplore';
 import Favoris from '../favoris/Favoris';
+import Account from '../user/Account';
+
 
 export interface State {
 }
@@ -98,6 +100,10 @@ export default class ViewPager extends Component<Props, State> {
 
                   <View style={styles.centerCtn}> 
                     <Favoris/>     
+                  </View>
+
+                  <View style={styles.centerCtn}> 
+                    <Account/>     
                   </View>
 
               </IndicatorViewPager>
