@@ -86,7 +86,8 @@ export default class ViewPager extends Component<Props, State> {
                 indicator={this._renderTabIndicator()}
               >
                  <View style={styles.centerCtn}>
-                    <Home/>
+                    {/* <Home/> */}
+                    <Account/>
                   </View>
 
                   <View style={styles.centerCtn}>
