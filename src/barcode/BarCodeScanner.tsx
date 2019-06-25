@@ -40,7 +40,7 @@ export default class BarCodeScanner extends Component<Props, State> {
   }
 
     onBarCodeRead = (e) => {
-        console.warn("Barcode value is" + e.data, "Barcode type is" + e.type);
+        // console.warn("Barcode value is" + e.data, "Barcode type is" + e.type);
     }
 
     closeSingleResult = () => {
@@ -55,7 +55,7 @@ export default class BarCodeScanner extends Component<Props, State> {
         this.setState({
             takeBarCode: true,
         });
-        console.warn('show');
+        // console.warn('show');
     }
 
     goSingle = () => {
@@ -63,7 +63,17 @@ export default class BarCodeScanner extends Component<Props, State> {
         goToSingle: true,
         setHome: false
       });
-      console.warn(this.state.goToSingle)
+      // console.warn(this.state.goToSingle)
+
+    }
+
+    removeData = () => {
+      this.setState({
+        haveData: false,
+        goToSingle: false,
+        setHome: true
+      });
+      // console.warn(this.state.goToSingle)
 
     }
 
@@ -98,7 +108,7 @@ export default class BarCodeScanner extends Component<Props, State> {
                   buttonNegative: 'Cancel',
                   }}
                   onGoogleVisionBarcodesDetected={({ barcodes }) => {
-                  console.warn(barcodes);
+                  console.warn('Data received : ', barcodes);
                   this.setState({
                       haveData: true
                   });
@@ -114,40 +124,128 @@ export default class BarCodeScanner extends Component<Props, State> {
                     </TouchableOpacity>
                 </View> */}
   
-  
+
                 {
                   this.state.haveData &&
-                  <View style={styles.containerSliderItem}>
-                  <ScrollView horizontal={true}>
-    
-                  <View style={styles.itemSlider}>
-    
+                  <>
+                  
+                  <View style={{position: 'absolute', top: '47%', left: '20%', width: '60%', alignItems: 'center'}}>
+
+                    <Image source={require('../assets/img/icons/match.png')} style={{width: 60, height: 60, resizeMode: 'contain', marginBottom: 16}}/>
+
+                    <Text style={{width: '100%', textAlign: 'center', color: 'white', fontSize: 18, fontWeight: 'bold'}}>Match trouvé</Text>
+                    </View>
+
+
+                    <View style={{position: 'absolute', bottom: 25, alignItems: 'center', left:0, width: '100%'}}>
+                    <TouchableOpacity onPress={this.removeData}>
+                      <Text style={{color: 'white', textDecoration: 'underline'}}>Recommencer</Text>
+                    </TouchableOpacity>
+                    </View>
+
+
+
+                    <View style={styles.containerSliderItem}>
+
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+
+                    <View style={styles.itemSlider}>
+
+                        <View style={{width: 140}}>
+                          <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                          <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                          <Text style={[styles.promoItem]}>52%</Text>
+                        </View>
+
+                        <View style={{marginLeft: 12}}>
+                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                          <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                          <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                            <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                          </TouchableOpacity>
+                        </View>
+
+                    </View>
+
+                    <View style={styles.itemSlider}>
+
                       <View style={{width: 140}}>
                         <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
                         <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-    
+
                         <Text style={[styles.promoItem]}>52%</Text>
                       </View>
-    
+
                       <View style={{marginLeft: 12}}>
                         <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
                         <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-    
+
+
                         <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
                           <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
                         </TouchableOpacity>
                       </View>
-    
-                  </View>
-    
-                  
+
+                    </View>
+
+
+                    <View style={styles.itemSlider}>
+
+                          <View style={{width: 140}}>
+                            <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                            <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                            <Text style={[styles.promoItem]}>52%</Text>
+                          </View>
+
+                          <View style={{marginLeft: 12}}>
+                            <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                            <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                            <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                              <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                            </TouchableOpacity>
+                          </View>
+
+                      </View>
+
+                      <View style={styles.itemSlider}>
+
+                        <View style={{width: 140}}>
+                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                        <Text style={[styles.promoItem]}>52%</Text>
+                        </View>
+
+                        <View style={{marginLeft: 12}}>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                        </TouchableOpacity>
+                        </View>
+
+                      </View>
+
+
                   </ScrollView>
-    
+
                 </View>
+                  
+                  </>
                 }
 
+            </View>
+                
+
                  
-           </View>
          
             ) : (
               <View style={styles.containerAfter}>
@@ -385,7 +483,7 @@ const styles = StyleSheet.create({
           width: '140%',
           height: 140,
           position: 'absolute',
-          bottom: 40,
+          bottom: 60,
           left: '10%',
           flexDirection: 'row',
           justifyContent: 'space-between',

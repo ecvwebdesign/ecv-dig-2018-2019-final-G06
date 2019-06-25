@@ -15,6 +15,7 @@ import MapShops from '../map/MapShop';
 import BarCode from '../barcode/BarCode';
 import BarCodeScanner from '../barcode/BarCodeScanner';
 import SearchAndExplore from '../SearchAndExplore';
+import Favoris from '../favoris/Favoris';
 
 export interface State {
 }
@@ -96,7 +97,7 @@ export default class ViewPager extends Component<Props, State> {
                   </View>
 
                   <View style={styles.centerCtn}> 
-                    <BarCode />        
+                    <Favoris/>     
                   </View>
 
               </IndicatorViewPager>
