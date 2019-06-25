@@ -56,102 +56,69 @@ export default class SearchAndExplore extends Component<Props, State> {
             indicator={this._renderTitleIndicator()}
              >
 
-            <View>
+    
+<View>
                 <ScrollView showsVerticalScrollIndicator={false}>
 
                 <View style={styles.containerItem}>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem, styles.promoOrangeItem]}>52%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
-
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
-
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
                     </View>
 
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem]}>92%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
-
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
-
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+   
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+  
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem, styles.promoOrangeItem]}>69%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
 
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
 
                     </View>
 
@@ -169,95 +136,61 @@ export default class SearchAndExplore extends Component<Props, State> {
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem, styles.promoOrangeItem]}>52%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
-
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
-
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
                     </View>
 
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem]}>92%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
-
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
-
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+   
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+  
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem, styles.promoOrangeItem]}>69%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
 
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
 
                     </View>
 
@@ -268,6 +201,7 @@ export default class SearchAndExplore extends Component<Props, State> {
             </View>
 
 
+
             <View>
                 <ScrollView showsVerticalScrollIndicator={false}>
 
@@ -275,95 +209,61 @@ export default class SearchAndExplore extends Component<Props, State> {
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem, styles.promoOrangeItem]}>52%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
-
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
-
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
                     </View>
 
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem]}>92%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
-
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
-
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+   
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/stefan.jpg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
                     <Text style={styles.priceItem}>dès 46.90€</Text>
-                    <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-                        <Image source={require('./assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
-                        <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
-                    </View>
+  
                     </View>
 
                     <View style={styles.item}>
                     <Image source={require('./assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                    <Image source={require('./assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
+                    <Image source={require('./assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                     <Text style={[styles.promoItem, styles.promoOrangeItem]}>69%</Text>
 
                     <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-                    <Text style={styles.priceItem}>En rupture de stock</Text>
+                    <Text style={styles.priceItem}>dès 46.90€</Text>
 
-                    <View style={[styles.recallMe]}>
-                        <View style={{justifyContent: 'space-between', flexDirection: 'row', marginTop: 0}}>
-                                <Image source={require('./assets/img/icons/email.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 4}}/>
-                                <Text style={{color: 'black', fontSize: 14, marginLeft: 6, fontWeight: 'bold'}}>Être alerté</Text>
-                        </View>
-
-                    </View>
 
                     </View>
 
