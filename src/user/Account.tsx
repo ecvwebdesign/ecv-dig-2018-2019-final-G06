@@ -52,9 +52,11 @@ export default class Account extends Component<Props, State> {
                 <View style={{flexDirection: 'column', alignItems:'center'}}>
                     <Image source={require('../assets/img/icons/image-1.png')} style={{borderRadius: 120, width: 140, height: 140, resizeMode: 'cover'}} />
                     <Text style={{fontSize: 24, fontWeight: 'bold', color: 'black', marginTop: 12}}>Julien Macé</Text>
-                    <Text style={{fontSize: 14, color: '#D6D6D6'}}>Inscrit depuis 10/02/2019</Text>
+                    <Text style={{fontSize: 14, color: '#D6D6D6', paddingBottom: 24}}>Inscrit depuis 10/02/2019</Text>
                 </View>
             </View>
+
+            <ScrollView>
 
             <View style={styles.ctnProfil}>
                 <Text style={{fontSize: 18, color: 'black', fontWeight: 'bold', marginTop: 36}}>PROFIL SPORTIF</Text>
@@ -69,7 +71,7 @@ export default class Account extends Component<Props, State> {
 
                 <View style={[styles.card, styles.cardColumn]}>
                     <Text style={{fontSize: 14, position: 'absolute', top: 15, right: 18, color: '#14448d', fontWeight: 'bold'}}>Modifier</Text>
-
+                    <Text style={{paddingLeft: 18, color:'black', fontSize: 18, fontWeight: 'bold', marginBottom: 8, position: 'absolute', top: 18, left: 0}}>Mes tailles</Text>
 
                   <View style={{width: '90%', flexDirection: 'row', justifyContent:'flex-start'}}>
                     <View style={{alignItems: 'center', marginLeft: 12}}>
@@ -86,11 +88,40 @@ export default class Account extends Component<Props, State> {
                       </View> 
                   </View>
                  
+                </View>
 
-          
+
+                <View style={[styles.card, styles.cardColumn]}>
+                    <Text style={{fontSize: 14, position: 'absolute', top: 15, right: 18, color: '#14448d', fontWeight: 'bold'}}>Modifier</Text>
+                    <Text style={{paddingLeft: 18, color:'black', fontSize: 18, fontWeight: 'bold', marginBottom: 8, position: 'absolute', top: 18, left: 0}}>Ce qui m'intéresse</Text>
+
+                  <View style={{width: '90%', flexDirection: 'row', justifyContent:'flex-start', flexWrap: 'wrap'}}>
+                    <View style={{alignItems: 'center', marginBottom: 12, marginLeft: 12, backgroundColor: '#F2F2F2', width: 90, height: 90, borderRadius: 24}}>
+                      <Image source={require('../assets/img/icons/nike.png')} style={{width: 70, height: 70, resizeMode: 'contain', marginTop: 10}}/>
+                    </View> 
+
+                    <View style={{alignItems: 'center', marginBottom: 12, marginLeft: 12, backgroundColor: '#F2F2F2', width: 90, height: 90, borderRadius: 24}}>
+                      <Image source={require('../assets/img/icons/babolat.png')} style={{width: 70, height: 70, resizeMode: 'contain', marginTop: 10}}/>
+                    </View> 
+
+                    <View style={{alignItems: 'center', marginBottom: 12, marginLeft: 12, backgroundColor: '#F2F2F2', width: 90, height: 90, borderRadius: 24}}>
+                      <Image source={require('../assets/img/icons/Puma.png')} style={{width: 70, height: 70, resizeMode: 'contain', marginTop: 10}}/>
+                    </View> 
+
+                    <View style={{alignItems: 'center', marginBottom: 12, marginLeft: 12, backgroundColor: '#F2F2F2', width: 90, height: 90, borderRadius: 24}}>
+                      <Image source={require('../assets/img/icons/Reebok.png')} style={{width: 70, height: 70, resizeMode: 'contain', marginTop: 10}}/>
+                    </View> 
+
+                    <View style={{alignItems: 'center', marginBottom: 12, marginLeft: 12, backgroundColor: '#F2F2F2', width: 90, height: 90, borderRadius: 24}}>
+                      <Image source={require('../assets/img/icons/nike.png')} style={{width: 70, height: 70, resizeMode: 'contain', marginTop: 10}}/>
+                    </View> 
+
+                  </View>
+                 
                 </View>
 
             </View>
+            </ScrollView>
 
 
           </View>
@@ -129,7 +160,8 @@ const styles = StyleSheet.create({
       },
       ctnProfil: {
         width: '90%',
-        marginLeft: '5%'
+        marginLeft: '5%',
+        paddingBottom: 30
       },
       card: {
           marginTop: 24,
@@ -151,8 +183,8 @@ const styles = StyleSheet.create({
       cardColumn: {
           flexDirection: 'row',
           justifyContent:'space-between',
-          paddingTop: 44,
-          paddingBottom: 44,
+          paddingTop: 60,
+          paddingBottom: 24,
       }
  
 });
