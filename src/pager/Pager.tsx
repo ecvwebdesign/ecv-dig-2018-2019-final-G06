@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import {PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator} from 'rn-viewpager';
+import Home from '../home/Home';
 import UploadPicture from '../uplaud/UplaodPicture';
 import MapShops from '../map/MapShop';
 import BarCode  from '../barcode/BarCode';
@@ -29,14 +30,14 @@ export default class ViewPager extends Component<Props, State> {
 
   _renderTabIndicator() {
     const style = {
-      width: 38,
-      height: 38
+      width: 30,
+      height: 30
     };
 
     let tabs = [{
             text: 'À proximité',
-            iconSource: require('../assets/img/tabs/add.png'),
-            selectedIconSource: require('../assets/img/tabs/add-hover.png')
+            iconSource: require('../assets/img/icons/home-gris.png'),
+            selectedIconSource: require('../assets/img/icons/home-bleu.png')
         },{
             text: 'Rechercher',
             iconSource: require('../assets/img/tabs/add.png'),
@@ -45,7 +46,13 @@ export default class ViewPager extends Component<Props, State> {
             text: 'Code barre',
             iconSource: require('../assets/img/tabs/add.png'),
             selectedIconSource: require('../assets/img/tabs/add-hover.png')
-    }];
+        },
+        ,{
+          text: 'Code barre',
+          iconSource: require('../assets/img/tabs/add.png'),
+          selectedIconSource: require('../assets/img/tabs/add-hover.png')
+        }
+      ];
     return <PagerTabIndicator tabs={tabs} selectedIconStyle={style} iconStyle={style} />;
 }
 
@@ -53,7 +60,7 @@ export default class ViewPager extends Component<Props, State> {
     return (
       <View style={styles.container}>
 
-            <View style={styles.ctnHeader}>
+            {/* <View style={styles.ctnHeader}>
 
              <Image style={styles.burgerMenu} source={require('../assets/img/menu-burger.png')} />
 
@@ -61,13 +68,17 @@ export default class ViewPager extends Component<Props, State> {
 
               <Image style={styles.profilImage} source={require('../assets/img/avatar.png')} />
 
-            </View>
+            </View> */}
 
             <IndicatorViewPager
                 style={{flex:1, paddingTop:0, backgroundColor:'white'}}
                 indicator={this._renderTabIndicator()}
               >
                  <View style={styles.centerCtn}>
+                    <Home/>
+                  </View>
+
+                  <View style={styles.centerCtn}>
                     <MapShops />
                   </View>
    
