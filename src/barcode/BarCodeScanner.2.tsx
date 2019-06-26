@@ -124,7 +124,7 @@ export default class Single extends Component<Props, State> {
 
                   <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24, marginLeft: '5%'}}>Pourquoi choisir ce produit ?</Text>
 
-                  <View style={[styles.containerThreeColumns, styles.marginBottomContainer]}>
+                  <View style={[styles.containerThreeColumns]}>
 
                     <View style={{alignItems: 'center', width: '32%', height: 80}}>
                       <Image source={require('../assets/img/icons/10.png')} style={{width: 80, resizeMode: 'contain', marginTop: 10, borderRadius: 50}} />
@@ -144,6 +144,54 @@ export default class Single extends Component<Props, State> {
                   </View>
 
 
+                  <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24, marginLeft: '5%', paddingTop: 40 }}>La communauté vous conseille</Text>
+
+                  <View style={[styles.containerThreeColumns, styles.marginBottomContainer]}>
+
+                    <View style={{alignItems: 'center', width: '49%', height: 80}}>
+                      <Image source={require('../assets/img/icons/note.png')} style={{width: 80, resizeMode: 'contain', marginTop: 10, borderRadius: 50}} />
+                      <Text style={{marginTop: 12}}>Basé sur 42 avis</Text>
+                    </View>
+
+
+                    <View style={{width: '49%', height: 80, alignItems: 'center'}}>
+                      <Text style={styles.boxShadowP}>+ Confort</Text>
+                      <Text style={[styles.boxShadowP, styles.marginP]}>+ Style</Text>
+                    </View>
+
+
+                  </View>
+
+                  <View style={styles.avisCtn}>
+                      <Text style={{width: '90%', marginLeft: '5%', fontSize: 16, color: '#164194'}}>Super confortable, à imperméabiliser avant. Je ne les quitte plus !</Text>
+                  </View>
+
+                  <View style={{width: '90%', marginLeft: '5%', marginTop:12, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row'}}>
+                      
+                      <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
+                        <Image source={require('../assets/img/icons/image-1.png')} style={{width: 40, height: 40, resizeMode: 'cover', borderRadius: 24}} />
+                        <Text style={{fontSize: 14, color: '#707070', marginLeft: 12}}>Charlie</Text>
+                      </View>
+
+                      <Text style={{fontSize: 14, color: '#707070', marginLeft: 12, fontStyle: 'italic'}}>le 28/04/2019</Text>
+
+                  </View>
+
+                  
+                  <View style={{marginBottom: 400, justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', marginLeft: '5%', marginTop: 16}}>
+                    <Text style={{fontSize: 14, color: '#164194', fontWeight: 'bold',}}>Lire tous les avis</Text>
+                    <Image source={require('../assets/img/icons/arrow-r.png')} style={{width: 10, height: 10, resizeMode:'contain', marginLeft: 6}}/>
+                  </View>
+
+
+                  <View>
+                    <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24, marginLeft: '5%', paddingTop: 40 }}>Où trouver ce produit ?</Text>
+                  </View>
+
+
+
+
+
                   </ScrollView>
               </View>
           </View>
@@ -158,7 +206,7 @@ const styles = StyleSheet.create({
       },
       containerContentSingle: {
         width: '100%',
-        height:500,
+        height: 'auto',
         backgroundColor: '#F2F2F2',
         marginTop: -50,
         borderTopLeftRadius: 36,
@@ -177,6 +225,36 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
       },
       marginBottomContainer: {
-        paddingBottom: 200,
+        paddingBottom: 40,
+      },
+      boxShadowP: {
+        width: 100,
+        backgroundColor: 'white',
+        paddingTop:10,
+        paddingBottom: 10,
+        paddingLeft: 14,
+        paddingRight: 14,
+        borderColor: 'rgba(0,0,0,0)',
+        borderRadius: 10.5,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.80,
+        shadowRadius: 1.41,
+        elevation: 2,
+      },
+      marginP:{
+        marginTop: 8
+      },
+      avisCtn: {
+        width: '90%',
+        backgroundColor: '#d1e2ff',
+        marginLeft: '5%',
+        borderRadius: 24,
+        paddingTop: 14,
+        paddingBottom: 14
+        
       }
 });
