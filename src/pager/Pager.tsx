@@ -17,6 +17,7 @@ import BarCodeScanner from '../barcode/BarCodeScanner';
 import SearchAndExplore from '../SearchAndExplore';
 import Favoris from '../favoris/Favoris';
 import Account from '../user/Account';
+import Single from '../barcode/BarCodeScanner.2';
 
 
 export interface State {
@@ -86,7 +87,8 @@ export default class ViewPager extends Component<Props, State> {
                 indicator={this._renderTabIndicator()}
               >
                  <View style={styles.centerCtn}>
-                    <Home/>
+                    {/* <Home/> */}
+                    <Single/>
                   </View>
 
                   <View style={styles.centerCtn}>

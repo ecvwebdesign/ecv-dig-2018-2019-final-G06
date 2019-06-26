@@ -37,6 +37,7 @@ export interface State {
     avatarSourceTwo?: any;
     showButton?: boolean;
     goToBarCode?: boolean;
+    showReinitialize?: boolean;
 }
 
 type Props = {};
@@ -53,7 +54,8 @@ export default class BarCodeScanner extends Component<Props, State> {
         goToSingle: false,
         avatarSourceTwo: '',
         showButton: true,
-        goToBarCode: false
+        goToBarCode: false,
+        showReinitialize: false,
     }
 
     // this.handleTourch = this.handleTourch.bind(this);
@@ -128,9 +130,9 @@ export default class BarCodeScanner extends Component<Props, State> {
 
     goBarCode = () => {
       this.setState({
-        takeBarCode: true
+        takeBarCode: true,
+        showReinitialize: true
       });
-      console.warn(this.state.goToBarCode);
     }
 
     render() {
@@ -198,10 +200,23 @@ export default class BarCodeScanner extends Component<Props, State> {
                       onGoogleVisionBarcodesDetected={({ barcodes }) => {
                       console.warn('Data received : ', barcodes);
                       this.setState({
-                          haveData: true
+                          haveData: true,
+                          showReinitialize: false
                       });
                       }}
                   />
+
+                  {
+                    this.state.showReinitialize &&
+                    <View style={{position: 'absolute', bottom: 25, alignItems: 'center', left:0, width: '100%'}}>
+                      <TouchableOpacity onPress={this.removeData}>
+                        <Text style={{color: 'white', textDecoration: 'underline'}}>Annuler</Text>
+                      </TouchableOpacity>
+                    </View>
+                  }
+                  
+
+
                    {
                   this.state.haveData &&
                   <View>
