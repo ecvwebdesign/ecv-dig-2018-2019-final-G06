@@ -8,13 +8,15 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Alert, ScrollView, FlatList, Text, View, TouchableOpacity, Image} from 'react-native';
- 
+import SwitchToggle from 'react-native-switch-toggle';
+
 
 const coeurRed = '../assets/img/icons/coeur-rouge.png';
 const coeurBlack = '../assets/img/icons/coeur-noir.png';
 
 export interface State {
   iLoveHeart?: boolean,
+  switchOn1?: boolean;
 }
 
 type Props = {};
@@ -25,7 +27,8 @@ export default class Single extends Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
-      iLoveHeart: false
+      iLoveHeart: false,
+      switchOn1: false,
     }
 
   }
@@ -35,6 +38,14 @@ export default class Single extends Component<Props, State> {
       iLoveHeart: !this.state.iLoveHeart
     });
     console.warn(this.state.iLoveHeart)
+  }
+
+  onPress1 = () => {
+    this.setState({ switchOn1: !this.state.switchOn1 });
+  }
+
+  getButtonText() {
+    return this.state.switchOn1 ? 'En ligne' : 'En magasin';
   }
 
     render() {
@@ -178,14 +189,151 @@ export default class Single extends Component<Props, State> {
                   </View>
 
                   
-                  <View style={{marginBottom: 400, justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', marginLeft: '5%', marginTop: 16}}>
+                  <View style={{justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', marginLeft: '5%', marginTop: 16}}>
                     <Text style={{fontSize: 14, color: '#164194', fontWeight: 'bold',}}>Lire tous les avis</Text>
                     <Image source={require('../assets/img/icons/arrow-r.png')} style={{width: 10, height: 10, resizeMode:'contain', marginLeft: 6}}/>
                   </View>
 
 
-                  <View>
-                    <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24, marginLeft: '5%', paddingTop: 40 }}>Où trouver ce produit ?</Text>
+                  <View style={{width: '90%', marginLeft: '5%', marginBottom: 400,}}>
+                    <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24, paddingTop: 40 }}>Où trouver ce produit ?</Text>
+
+                    <View style={{marginTop: 24}}>
+                    <SwitchToggle
+                      switchOn={this.state.switchOn1}
+                      onPress={this.onPress1}
+                      buttonText={this.getButtonText()}
+                      containerStyle={{
+                        marginTop: 16,
+                        width: 160,
+                        height: 40,
+                        borderRadius: 30,
+                        padding: 5,
+                      }} 
+                      buttonStyle={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'absolute'
+                      }}
+                      circleStyle={{
+                        width: 120,
+                        height: 40,
+                        borderRadius: 27.5,
+                        backgroundColor: 'blue', // rgb(102,134,205)
+                      }}
+                    />
+                    </View>
+                    
+                    <View style={styles.cardItemResult}>
+
+                      <View style={{width: 30, height: 30, backgroundColor: '#EDEDED', borderRadius: 50, position: 'absolute', top: 50, right: 24, alignItems: 'center',}}>
+                        <Image source={require('../assets/img/icons/right-arrow-b.png')}  style={{width: 14, height: 14, resizeMode: 'contain', marginTop: 8}}/>
+                      </View>
+
+                      <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Intersport</Text>
+                      <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>Pessac</Text>
+                      <View style={{marginLeft: 24, marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                        <Text style={{color: '#164194', fontSize: 16, fontWeight: 'bold'}}>89.99€</Text>
+                        <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginLeft: 12,}}>63.99€</Text>
+                      </View>
+                    </View>
+
+                      
+                    <View style={styles.cardItemResult}>
+
+                      <View style={{width: 30, height: 30, backgroundColor: '#EDEDED', borderRadius: 50, position: 'absolute', top: 50, right: 24, alignItems: 'center',}}>
+                        <Image source={require('../assets/img/icons/right-arrow-b.png')}  style={{width: 14, height: 14, resizeMode: 'contain', marginTop: 8}}/>
+                      </View>
+
+                      <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Intersport</Text>
+                      <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>Pessac</Text>
+                      <View style={{marginLeft: 24, marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                        <Text style={{color: '#164194', fontSize: 16, fontWeight: 'bold'}}>89.99€</Text>
+                        <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginLeft: 12,}}>63.99€</Text>
+                      </View>
+                    </View>
+
+                      
+                    <View style={styles.cardItemResult}>
+
+                      <View style={{width: 30, height: 30, backgroundColor: '#EDEDED', borderRadius: 50, position: 'absolute', top: 50, right: 24, alignItems: 'center',}}>
+                        <Image source={require('../assets/img/icons/right-arrow-b.png')}  style={{width: 14, height: 14, resizeMode: 'contain', marginTop: 8}}/>
+                      </View>
+
+                      <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Intersport</Text>
+                      <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>Pessac</Text>
+                      <View style={{marginLeft: 24, marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                        <Text style={{color: '#164194', fontSize: 16, fontWeight: 'bold'}}>89.99€</Text>
+                        <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginLeft: 12,}}>63.99€</Text>
+                      </View>
+                    </View>
+
+                      
+                    <View style={styles.cardItemResult}>
+
+                      <View style={{width: 30, height: 30, backgroundColor: '#EDEDED', borderRadius: 50, position: 'absolute', top: 50, right: 24, alignItems: 'center',}}>
+                        <Image source={require('../assets/img/icons/right-arrow-b.png')}  style={{width: 14, height: 14, resizeMode: 'contain', marginTop: 8}}/>
+                      </View>
+
+                      <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Intersport</Text>
+                      <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>Pessac</Text>
+                      <View style={{marginLeft: 24, marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                        <Text style={{color: '#164194', fontSize: 16, fontWeight: 'bold'}}>89.99€</Text>
+                        <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginLeft: 12,}}>63.99€</Text>
+                      </View>
+                    </View>
+
+
+
+                    <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24, paddingTop: 40, paddingBottom: 12 }}>Les produits similaires</Text>
+                    <Text style={{color: 'black'}}>Cette paire n'est pas faite pour vous ? Découvrez les produits de la même catégorie.</Text>
+
+
+                      <View style={{width:'180%', marginTop: 24, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row'}}>
+
+                      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+
+                        <View style={styles.releatedItemProduct}>
+                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                        </View>
+
+                        <View style={styles.releatedItemProduct}>
+                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                        </View>
+
+                        <View style={styles.releatedItemProduct}>
+                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                        </View>
+
+                        <View style={styles.releatedItemProduct}>
+                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                        </View>
+
+                        <View style={styles.releatedItemProduct}>
+                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                        </View>
+
+                        <View style={styles.releatedItemProduct}>
+                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                        </View>
+                        
+                        </ScrollView>
+
+                      </View>
+
+
                   </View>
 
 
@@ -255,6 +403,19 @@ const styles = StyleSheet.create({
         borderRadius: 24,
         paddingTop: 14,
         paddingBottom: 14
-        
+      },
+      cardItemResult: {
+        width: '100%',
+        paddingTop: 16,
+        paddingBottom: 16,
+        backgroundColor: 'white',
+        borderRadius: 24,
+        marginTop: 24,
+      },
+      releatedItemProduct: {
+        width: 200,
+        height: 'auto',
+        marginRight: 12,
+        alignItems: 'center'
       }
 });
