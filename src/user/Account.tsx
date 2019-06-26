@@ -50,7 +50,7 @@ export default class Account extends Component<Props, State> {
 
             <View style={styles.contentAccount}>
                 <View style={{flexDirection: 'column', alignItems:'center'}}>
-                    <Image source={require('../assets/img/icons/image-1.png')} style={{borderRadius: 120, width: 140, height: 140, resizeMode: 'cover'}} />
+                    <Image source={require('../assets/img/julien.png')} style={{borderRadius: 120, width: 140, height: 140, resizeMode: 'cover'}} />
                     <Text style={{fontSize: 24, fontWeight: 'bold', color: 'black', marginTop: 12}}>Julien Macé</Text>
                     <Text style={{fontSize: 14, color: '#D6D6D6', paddingBottom: 24}}>Inscrit depuis 10/02/2019</Text>
                 </View>

@@ -606,7 +606,7 @@ export default class BarCodeScanner extends Component<Props, State> {
                   <View style={{width: '90%', marginLeft: '5%', marginTop:12, justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row'}}>
                       
                       <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center'}}>
-                        <Image source={require('../assets/img/icons/image-1.png')} style={{width: 40, height: 40, resizeMode: 'cover', borderRadius: 24}} />
+                        <Image source={require('../assets/img/julien.png')} style={{width: 40, height: 40, resizeMode: 'cover', borderRadius: 24}} />
                         <Text style={{fontSize: 14, color: '#707070', marginLeft: 12}}>Charlie</Text>
                       </View>
 
