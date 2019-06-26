@@ -7,36 +7,19 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Alert, Vibration, ScrollView, FlatList, Text, View, TouchableOpacity, Image} from 'react-native';
+import {Platform, StyleSheet, Alert, ScrollView, FlatList, Text, View, TouchableOpacity, Image} from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import ImagePicker from 'react-native-image-picker';
-
 
 const backgroundImageShop = require('../assets/img/shop.jpg');
 const backgroundProduct = require('../assets/img/airforce.jpg');
 const imageBackground = require('../assets/img/background_empty.jpg');
 const flashImage = require('../assets/img/barcode.png');
 
-
-const backgroundImage = require('../assets/img/background_empty.jpg');
-
-const options = {
-  title: 'Sélectionner une photo',
-  quality: 0.3,
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  },
-};
-
 export interface State {
     setHome?: boolean;
     haveData?: boolean;
     takeBarCode?: boolean;
     goToSingle?: boolean;
-    avatarSourceTwo?: any;
-    showButton?: boolean;
-    goToBarCode?: boolean;
 }
 
 type Props = {};
@@ -50,10 +33,7 @@ export default class BarCodeScanner extends Component<Props, State> {
         setHome: true,
         haveData: false,
         takeBarCode: false,
-        goToSingle: false,
-        avatarSourceTwo: '',
-        showButton: true,
-        goToBarCode: false
+        goToSingle: false
     }
 
     // this.handleTourch = this.handleTourch.bind(this);
@@ -91,51 +71,14 @@ export default class BarCodeScanner extends Component<Props, State> {
       this.setState({
         haveData: false,
         goToSingle: false,
-        setHome: true,
-        avatarSourceTwo: '',
-        showButton: true,
-        takeBarCode: false
+        setHome: true
       });
       // console.warn(this.state.goToSingle)
 
     }
 
-    uplaudPicture = () => {
-      ImagePicker.showImagePicker(options, (response) => {
-        console.warn('Response = ', response);
-  
-        if (response.didCancel) {
-          console.warn('User cancelled photo picker');
-        } else if (response.error) {
-          console.warn('ImagePicker Error: ', response.error);
-        } else if (response.customButton) {
-          console.warn('User tapped custom button: ', response.customButton);
-        } else {
-          let source = { uri: response.uri };
-          console.warn(source);
-          // You can also display the image using data:
-          // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-          this.setState({
-            avatarSourceTwo: source,
-            haveData: true,
-            showButton: false
-          });
-          Vibration.vibrate(450, false);
-  
-        }
-      });
-    }
-
-    goBarCode = () => {
-      this.setState({
-        takeBarCode: true
-      });
-      console.warn(this.state.goToBarCode);
-    }
-
     render() {
         
-        let iconTwo = this.state.avatarSourceTwo ? this.state.avatarSourceTwo : backgroundImage;
 
         return (
 
@@ -145,7 +88,32 @@ export default class BarCodeScanner extends Component<Props, State> {
             this.state.setHome ? (
 
               <View style={styles.container}>
-              
+              <RNCamera
+                  ref={ref => {
+                  this.camera = ref;
+                  }}
+                  style={styles.preview}
+                  type={RNCamera.Constants.Type.back}
+                  flashMode={RNCamera.Constants.FlashMode.on}
+                  androidCameraPermissionOptions={{
+                  title: 'Permission to use camera',
+                  message: 'We need your permission to use your camera',
+                  buttonPositive: 'Ok',
+                  buttonNegative: 'Cancel',
+                  }}
+                  androidRecordAudioPermissionOptions={{
+                  title: 'Permission to use audio recording',
+                  message: 'We need your permission to use your audio',
+                  buttonPositive: 'Ok',
+                  buttonNegative: 'Cancel',
+                  }}
+                  onGoogleVisionBarcodesDetected={({ barcodes }) => {
+                  console.warn('Data received : ', barcodes);
+                  this.setState({
+                      haveData: true
+                  });
+                  }}
+              />
                 <View style={styles.containerTitleTop}>
                     <Text style={{marginLeft: '5%', fontSize: 24, color: 'black', fontWeight: 'bold'}}>Scan</Text>
                     <Text style={{marginLeft: '5%', fontSize: 16, color: '#b7b7b7', fontWeight: 'regular'}}>Scanez un article de sport</Text>
@@ -156,175 +124,10 @@ export default class BarCodeScanner extends Component<Props, State> {
                     </TouchableOpacity>
                 </View> */}
   
-                <View style={{width: '100%', height: '100%'}}> 
-
-                  <Image source={iconTwo} style={{width: '100%', height: '100%', resizeMode:'cover'}} />
-
-                {
-                  this.state.showButton &&
-                  <View style={{width: '80%', height: 200, marginTop: 300, marginLeft: '10%', position: 'absolute', top:0}}>
-                    <TouchableOpacity onPress={this.uplaudPicture}><Text style={{paddingTop: 10, paddingBottom: 10, textAlign: 'center', color: 'white', backgroundColor: '#14448d', borderRadius: 24}}>Prendre une photo</Text></TouchableOpacity>
-                    <TouchableOpacity onPress={this.goBarCode}><Text style={{paddingTop: 10, paddingBottom: 10, textAlign: 'center', color: 'white', backgroundColor: '#14448d', marginTop: 30, borderRadius: 24}}>Scanner un code barre</Text></TouchableOpacity>
-                  </View>
-                }
-
-
-                {
-                  this.state.takeBarCode && 
-                  <View style={[styles.container, styles.containerTwo]}>
-                  <View style={styles.containerTitleTop}>
-                    <Text style={{marginLeft: '5%', fontSize: 24, color: 'black', fontWeight: 'bold'}}>Scan</Text>
-                    <Text style={{marginLeft: '5%', fontSize: 16, color: '#b7b7b7', fontWeight: 'regular'}}>Scanez un article de sport</Text>
-                </View>
-                  <RNCamera
-                      ref={ref => {
-                      this.camera = ref;
-                      }}
-                      style={styles.preview}
-                      type={RNCamera.Constants.Type.back}
-                      flashMode={RNCamera.Constants.FlashMode.on}
-                      androidCameraPermissionOptions={{
-                      title: 'Permission to use camera',
-                      message: 'We need your permission to use your camera',
-                      buttonPositive: 'Ok',
-                      buttonNegative: 'Cancel',
-                      }}
-                      androidRecordAudioPermissionOptions={{
-                      title: 'Permission to use audio recording',
-                      message: 'We need your permission to use your audio',
-                      buttonPositive: 'Ok',
-                      buttonNegative: 'Cancel',
-                      }}
-                      onGoogleVisionBarcodesDetected={({ barcodes }) => {
-                      console.warn('Data received : ', barcodes);
-                      this.setState({
-                          haveData: true
-                      });
-                      }}
-                  />
-                   {
-                  this.state.haveData &&
-                  <View>
-                  
-                    <View style={{position: 'absolute', backgroundColor: 'red', top: 300, left: 100, width: '60%', alignItems: 'center', flex: 1}}>
-
-                      <Image source={require('../assets/img/icons/match.png')} style={{width: 60, height: 60, resizeMode: 'contain', marginBottom: 16}}/>
-                      <Text style={{width: '100%', textAlign: 'center', color: 'white', fontSize: 18, fontWeight: 'bold'}}>Match trouvé</Text>
-                    
-                    </View>
-
-
-                    <View style={{position: 'absolute', bottom: 25, alignItems: 'center', left:0, width: '100%'}}>
-                    <TouchableOpacity onPress={this.removeData}>
-                      <Text style={{color: 'white', textDecoration: 'underline'}}>Recommencer</Text>
-                    </TouchableOpacity>
-                    </View>
-
-                    <View style={styles.containerSliderItem}>
-
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-
-                    <View style={styles.itemSlider}>
-
-                        <View style={{width: 140}}>
-                          <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                          <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                          <Text style={[styles.promoItem]}>52%</Text>
-                        </View>
-
-                        <View style={{marginLeft: 12}}>
-                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                          <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                          <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                            <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                          </TouchableOpacity>
-                        </View>
-
-                    </View>
-
-                    <View style={styles.itemSlider}>
-
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
-
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
-
-                    </View>
-
-                    <View style={styles.itemSlider}>
-
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
-
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
-
-                    </View>
-
-                    <View style={styles.itemSlider}>
-
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
-
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
-
-                    </View>
-
-
-
-                  </ScrollView>
-
-                </View>
-                  
-                  </View>
-                }
-                  </View>
-                }
-                
-  
-                </View>
 
                 {
                   this.state.haveData &&
-                  <View>
+                  <>
                   
                   <View style={{position: 'absolute', top: '47%', left: '20%', width: '60%', alignItems: 'center'}}>
 
@@ -340,6 +143,8 @@ export default class BarCodeScanner extends Component<Props, State> {
                     </TouchableOpacity>
                     </View>
 
+
+
                     <View style={styles.containerSliderItem}>
 
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -386,16 +191,38 @@ export default class BarCodeScanner extends Component<Props, State> {
 
                     </View>
 
+
                     <View style={styles.itemSlider}>
 
-                      <View style={{width: 140}}>
+                          <View style={{width: 140}}>
+                            <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                            <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                            <Text style={[styles.promoItem]}>52%</Text>
+                          </View>
+
+                          <View style={{marginLeft: 12}}>
+                            <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                            <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                            <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                              <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                            </TouchableOpacity>
+                          </View>
+
+                      </View>
+
+                      <View style={styles.itemSlider}>
+
+                        <View style={{width: 140}}>
                         <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
                         <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                         <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
+                        </View>
 
-                      <View style={{marginLeft: 12}}>
+                        <View style={{marginLeft: 12}}>
                         <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
                         <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
@@ -403,44 +230,24 @@ export default class BarCodeScanner extends Component<Props, State> {
                         <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
                           <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
                         </TouchableOpacity>
+                        </View>
+
                       </View>
-
-                    </View>
-
-                    <View style={styles.itemSlider}>
-
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
-
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
-
-                    </View>
-
 
 
                   </ScrollView>
 
                 </View>
                   
-                  </View>
+                  </>
                 }
 
             </View>
+                
 
+                 
+         
             ) : (
-
               <View style={styles.containerAfter}>
               <ScrollView>
               
@@ -505,16 +312,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F5FCFF',
       },
-      containerTwo: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        left:0,
-        top:0,
-        zIndex:9999
-      },
       containerAfter: {
         flex: 1,
         justifyContent: 'center',
@@ -540,7 +337,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top:0,
         left:0,
-        zIndex:9999,
       },  
       imageFlash: {
         width: 28,
