@@ -83,7 +83,7 @@ export default class Account extends Component<Props, State> {
                           <Text style={{color: 'black', fontWeight: 'bold', marginTop: 4}}>Bas</Text>
                       </View> 
                       <View style={{alignItems: 'center', marginLeft: 2}}>
-                          <View style={{width: 50, height: 50, borderRadius: 50, backgroundColor: '#5ACB38', alignItems: 'center'}}><Text style={{color:'white', fontWeight: 'bold',fontSize: 18, marginTop: 12}}>C</Text></View>    
+                          <View style={{width: 50, height: 50, borderRadius: 50, backgroundColor: '#5ACB38', alignItems: 'center'}}><Text style={{color:'white', fontWeight: 'bold',fontSize: 18, marginTop: 12}}>43</Text></View>    
                           <Text style={{color: 'black', fontWeight: 'bold', marginTop: 4}}>Chaussures</Text>
                       </View> 
                   </View>

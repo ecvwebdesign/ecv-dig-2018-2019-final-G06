@@ -169,7 +169,7 @@ export default class BarCodeScanner extends Component<Props, State> {
               
                 <View style={styles.containerTitleTop}>
                     <Text style={{marginLeft: '5%', fontSize: 24, color: 'black', fontWeight: 'bold'}}>Scan</Text>
-                    <Text style={{marginLeft: '5%', fontSize: 16, color: '#b7b7b7', fontWeight: 'regular'}}>Scanez un article de sport</Text>
+                    <Text style={{marginLeft: '5%', fontSize: 16, color: '#b7b7b7', fontWeight: 'regular'}}>Scannez un article de sport ou prendre une photo</Text>
                 </View>
                 {/* <View style={styles.ctnFlash}>
                     <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
@@ -479,9 +479,12 @@ export default class BarCodeScanner extends Component<Props, State> {
               <View style={styles.container}>
               <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', position: 'absolute', top: 0, width: '100%', zIndex:9999}}>
 
+            
                 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: 16, marginLeft: 24}}>
-                  <Image source={require('../assets/img/left-arrow.png')} style={{width: 20, height: 20, resizeMode: 'contain', marginRight: 8}}/>
-                  <Text style={{color: 'black', fontSize: 16}}>Retour</Text>
+                  <TouchableOpacity onPress={this.removeData} style={{flexDirection: 'row', justifyContent: 'flex-start',}}>
+                    <Image source={require('../assets/img/left-arrow.png')} style={{width: 20, height: 20, resizeMode: 'contain', marginRight: 8}}/>
+                    <Text style={{color: 'black', fontSize: 16}}>Retour</Text>
+                  </TouchableOpacity>
                 </View>
 
 
