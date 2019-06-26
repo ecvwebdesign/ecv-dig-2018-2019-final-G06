@@ -29,65 +29,74 @@ export interface State {
 type Props = {};
 export default class Home extends Component<Props, State> {
   state: State;
+  _carousel: any;
 
   constructor(props: any) {
     super(props);
     this.state = {
       entries: [
         {
-          image: "../assets/img/airforce.jpg",
+          image: "http://sebcnst.fr/it-ecv/test/vans.png",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
           avis: '98',
           numberAvis: '34'
         },
         {
-          image: "../assets/img/airforce.jpg",
+          image: "http://sebcnst.fr/it-ecv/test/stefan.jpg",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
           avis: '72',
           numberAvis: '34'
         },
         {
-          image: "../assets/img/airforce.jpg",
+          image: "http://sebcnst.fr/it-ecv/test/filatee.jpg",
+          title: "T-shirt - Fila",
+          price: "dès 26.90€",
+          avis: '91',
+          numberAvis: '18'
+        },
+        {
+          image: "http://sebcnst.fr/it-ecv/test/vans.png",
           title: "Nike SB - Canvas",
           price: "dès 46.90€",
           avis: '34',
           numberAvis: '34'
+        },
+        {
+          image: "http://sebcnst.fr/it-ecv/test/stefan.jpg",
+          title: "Nike SB - Canvas",
+          price: "dès 46.90€",
+          avis: '72',
+          numberAvis: '34'
+        },
+        {
+          image: "http://sebcnst.fr/it-ecv/test/filatee.jpg",
+          title: "T-shirt - Fila",
+          price: "dès 26.90€",
+          avis: '91',
+          numberAvis: '18'
         }
       ],
     };
   }
 
-  // renderNavBar = () => (
-  //   <View style={[styles.navContainer, {zIndex: 1}]}>
-  //     <View style={styles.statusBar} />
-  //     <View style={styles.navBar}>
-  //       <TouchableOpacity style={styles.iconLeft} onPress={() => {}}>
-  //           <Text>onjon</Text>
-  //       </TouchableOpacity>
-  //       <TouchableOpacity style={styles.iconRight} onPress={() => {}}>
-  //       <Text>onjon</Text>
-  //       </TouchableOpacity>
-  //     </View>
-  //   </View>
-  // )
 
   _renderItem ({item, index}) {
 
-    // console.warn(item.avis);
     const style = [styles.card];
   
     if(item.avis < 80){
       style.push(styles.orangeBack);
     }else if(item.avis < 50){
       style.push(styles.redDislike);
+    }else{
+
     }
 
-    
     return ( 
         <View style={styles.slide} key={index}>
-          <Image source={require('../assets/img/airforce.jpg')} style={{width: '100%', height: 180, resizeMode: 'cover', borderRadius: 16}}/>
+          <Image source={{ uri: item.image }} style={{width: '100%', height: 180, resizeMode: 'cover', borderRadius: 16}}/>
             <Text style={[styles.card, style]}>
               {item.avis}%
             </Text>
@@ -110,9 +119,10 @@ export default class Home extends Component<Props, State> {
                     <Text style={{color: 'black'}}>Non merci</Text>
                 </View>
 
+            
                 <View style={{justifyContent: 'center', alignItems: 'center', marginRight: 38}}>
                   <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imgAdd} />
-                  <Text style={{color: 'black'}}>Ajouter !</Text>
+                  <Text style={{color: 'black'}}>Ajouter !</Text>        
                 </View>
 
             </View>
@@ -148,6 +158,7 @@ export default class Home extends Component<Props, State> {
                     itemWidth={300} 
                     layout={'tinder'}
                     layoutCardOffset={'9'}
+                    loop={true}
                   />
 
                 </View>

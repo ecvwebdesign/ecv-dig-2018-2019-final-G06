@@ -38,8 +38,15 @@ export default class ViewPager extends Component<Props, State> {
     const style = {
       width: 28,
       height: 28,
-      color: '#004492',
     };
+
+    const styleText = {
+      color: '#707070'
+    };
+
+    const selectedStyleText = {
+      color: '#004492',
+    } 
 
 
     let tabs = [{
@@ -65,7 +72,7 @@ export default class ViewPager extends Component<Props, State> {
           selectedIconSource: require('../assets/img/icons/account-bleu.png')
         }
       ];
-    return <PagerTabIndicator tabs={tabs} selectedIconStyle={style} iconStyle={style} />;
+    return <PagerTabIndicator changePageWithAnimation={false} tabs={tabs} selectedIconStyle={style} iconStyle={style} textStyle={styleText} selectedTextStyle={selectedStyleText} />;
 }
 
   render() {
