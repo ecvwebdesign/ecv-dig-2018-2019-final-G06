@@ -3,6 +3,7 @@ package com.awesomeproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.testfairy.react.TestFairyPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.imagepicker.ImagePickerPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new TestFairyPackage(),
             new RNCameraPackage(),
             new MapsPackage(),
             new ImagePickerPackage()

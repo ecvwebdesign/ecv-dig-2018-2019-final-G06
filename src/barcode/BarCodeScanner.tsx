@@ -49,6 +49,7 @@ export interface State {
     iLoveHeart?: boolean;
     switchOn1?: boolean;
     showMapNow?: boolean;
+    colorGreen?: boolean;
 }
 
 type Props = {};
@@ -69,7 +70,8 @@ export default class BarCodeScanner extends Component<Props, State> {
         showReinitialize: false,
         iLoveHeart: false,
         switchOn1: false,
-        showMapNow: false
+        showMapNow: false,
+        colorGreen: false,
     }
 
     // this.handleTourch = this.handleTourch.bind(this);
@@ -161,6 +163,19 @@ export default class BarCodeScanner extends Component<Props, State> {
       this.setState({
         showMapNow: !this.state.showMapNow
       });
+    }
+
+    changeStateImage = () => {
+      this.setState({
+        iLoveHeart: !this.state.iLoveHeart
+      });
+      // console.warn(this.state.iLoveHeart);
+    }
+
+    textStyle = () => {
+      this.setState({
+        colorGreen: !this.state.colorGreen
+      })
     }
 
     render() {
@@ -270,14 +285,14 @@ export default class BarCodeScanner extends Component<Props, State> {
                     <View style={styles.itemSlider}>
 
                         <View style={{width: 140}}>
-                          <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                          <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
                           <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                           <Text style={[styles.promoItem]}>52%</Text>
                         </View>
 
                         <View style={{marginLeft: 12}}>
-                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
                           <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
 
@@ -288,69 +303,71 @@ export default class BarCodeScanner extends Component<Props, State> {
 
                     </View>
 
-                    <View style={styles.itemSlider}>
-
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
-
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
-
-                    </View>
 
                     <View style={styles.itemSlider}>
 
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+                        <View style={{width: 140}}>
+                          <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
+                          <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
+                          <Text style={[styles.promoItem]}>52%</Text>
+                        </View>
 
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+                        <View style={{marginLeft: 12}}>
+                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
+                          <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
 
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
+                          <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                            <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                          </TouchableOpacity>
+                        </View>
 
                     </View>
+
 
                     <View style={styles.itemSlider}>
 
-                      <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+                        <View style={{width: 140}}>
+                          <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
+                          <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
-                        <Text style={[styles.promoItem]}>52%</Text>
-                      </View>
+                          <Text style={[styles.promoItem]}>52%</Text>
+                        </View>
 
-                      <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+                        <View style={{marginLeft: 12}}>
+                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
+                          <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
 
-                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                        </TouchableOpacity>
-                      </View>
+                          <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                            <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                          </TouchableOpacity>
+                        </View>
 
                     </View>
 
+
+                    <View style={styles.itemSlider}>
+
+                        <View style={{width: 140}}>
+                          <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
+                          <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                          <Text style={[styles.promoItem]}>52%</Text>
+                        </View>
+
+                        <View style={{marginLeft: 12}}>
+                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
+                          <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                          <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                            <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                          </TouchableOpacity>
+                        </View>
+
+                    </View>
 
 
                   </ScrollView>
@@ -389,36 +406,15 @@ export default class BarCodeScanner extends Component<Props, State> {
 
                     <View style={styles.itemSlider}>
 
-                        <View style={{width: 140}}>
-                          <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
-                          <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
-
-                          <Text style={[styles.promoItem]}>52%</Text>
-                        </View>
-
-                        <View style={{marginLeft: 12}}>
-                          <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
-                          <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
-
-
-                          <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
-                            <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
-                          </TouchableOpacity>
-                        </View>
-
-                    </View>
-
-                    <View style={styles.itemSlider}>
-
                       <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
                         <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                         <Text style={[styles.promoItem]}>52%</Text>
                       </View>
 
                       <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
                         <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
 
@@ -429,17 +425,18 @@ export default class BarCodeScanner extends Component<Props, State> {
 
                     </View>
 
+
                     <View style={styles.itemSlider}>
 
                       <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
                         <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                         <Text style={[styles.promoItem]}>52%</Text>
                       </View>
 
                       <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
                         <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
 
@@ -450,17 +447,84 @@ export default class BarCodeScanner extends Component<Props, State> {
 
                     </View>
 
+
                     <View style={styles.itemSlider}>
 
                       <View style={{width: 140}}>
-                        <Image source={require('../assets/img/product/Kappa.jpeg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
                         <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
 
                         <Text style={[styles.promoItem]}>52%</Text>
                       </View>
 
                       <View style={{marginLeft: 12}}>
-                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Nike Air Zoom 13</Text>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
+                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                        </TouchableOpacity>
+                      </View>
+
+                    </View>
+
+
+                    <View style={styles.itemSlider}>
+
+                      <View style={{width: 140}}>
+                        <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                        <Text style={[styles.promoItem]}>52%</Text>
+                      </View>
+
+                      <View style={{marginLeft: 12}}>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
+                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                        </TouchableOpacity>
+                      </View>
+
+                    </View>
+
+
+                    <View style={styles.itemSlider}>
+
+                      <View style={{width: 140}}>
+                        <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                        <Text style={[styles.promoItem]}>52%</Text>
+                      </View>
+
+                      <View style={{marginLeft: 12}}>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
+                        <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
+
+
+                        <TouchableOpacity style={{marginTop: 24}} onPress={this.goSingle}>
+                          <Text style={{color:'#14448d', fontSize: 13, fontWeight: 'bold'}}>Voir le produit</Text>
+                        </TouchableOpacity>
+                      </View>
+
+                    </View>
+
+
+                    <View style={styles.itemSlider}>
+
+                      <View style={{width: 140}}>
+                        <Image source={require('../assets/img/feed.jpg')} style={styles.imageItem}/>
+                        <Image source={require('../assets/img/icons/coeur-noir.png')} style={styles.imageCoeur}/>
+
+                        <Text style={[styles.promoItem]}>52%</Text>
+                      </View>
+
+                      <View style={{marginLeft: 12}}>
+                        <Text style={{fontSize: 14, color: 'black', fontWeight: 'bold'}}>Vomero Nike</Text>
                         <Text style={{fontSize: 13, color: '#E30612', fontWeight: 'bold'}}>dès 76.86€</Text>
 
 
@@ -521,8 +585,8 @@ export default class BarCodeScanner extends Component<Props, State> {
                 <ScrollView>
                   
                   <View style={{alignItems: 'center'}}>
-                    <Text style={{fontSize: 22, fontWeight: 'bold', marginTop: 24, color: 'black'}}>Nike SB Stefan Janoski</Text>
-                    <Text style={{color: '#707070', fontSize: 14, marginTop: 8}}>Chaussures de skate</Text>
+                    <Text style={{fontSize: 22, fontWeight: 'bold', marginTop: 24, color: 'black'}}>Nike Vomero</Text>
+                    <Text style={{color: '#707070', fontSize: 14, marginTop: 8}}>Chaussures de runnning</Text>
                   </View>
   
   
@@ -559,12 +623,20 @@ export default class BarCodeScanner extends Component<Props, State> {
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </Text>
                   </View>
+
+                  <View style={[styles.avisCtn, styles.marginAvisTop]}>
+                      <Text style={{width: '90%', marginLeft: '5%', fontSize: 16, color: '#164194'}}>Niveau confirmé</Text>
+                  </View>
   
                   <View style={styles.cardText}>
                     <Text style={{fontSize: 18, color: 'black', fontWeight:'bold', marginTop: 24}}>Entretien</Text>
                     <Text style={{fontSize: 14, color: '#707070', marginTop: 4}}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </Text>
+                  </View>
+
+                  <View style={[styles.avisCtn, styles.marginAvisTop]}>
+                      <Text style={{width: '90%', marginLeft: '5%', fontSize: 16, color: '#164194'}}>À usage régulier, il est conseillé de changer ses chaussures de Running tous les 6-12mois.</Text>
                   </View>
   
   
@@ -603,11 +675,13 @@ export default class BarCodeScanner extends Component<Props, State> {
   
   
                     <View style={{width: '49%', height: 80, alignItems: 'center'}}>
-                      <Text style={styles.boxShadowP}>+ Confort</Text>
+                      <TouchableOpacity onPress={this.textStyle}>
+                        <Text style={this.state.colorGreen ? styles.textSelectedS : styles.boxShadowP}>+ Confort</Text>
+                      </TouchableOpacity>
                       <Text style={[styles.boxShadowP, styles.marginP]}>+ Style</Text>
                     </View>
   
-  
+
                   </View>
   
                   <View style={styles.avisCtn}>
@@ -674,19 +748,36 @@ export default class BarCodeScanner extends Component<Props, State> {
                       ) : (
   
                         this.state.switchOn1 ? (
+                          <>
                           <View style={styles.cardItemResult}>
   
                             <View style={{width: 30, height: 30, backgroundColor: '#EDEDED', borderRadius: 50, position: 'absolute', top: 50, right: 24, alignItems: 'center',}}>
                               <Image source={require('../assets/img/icons/right-arrow-b.png')}  style={{width: 14, height: 14, resizeMode: 'contain', marginTop: 8}}/>
                             </View>
   
-                            <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Intersport</Text>
-                            <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>Pessac</Text>
+                            <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Nike</Text>
+                            <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>https://nike.com/fr/t/chat...</Text>
                             <View style={{marginLeft: 24, marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
                               <Text style={{color: '#164194', fontSize: 16, fontWeight: 'bold'}}>89.99€</Text>
                               <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginLeft: 12,}}>63.99€</Text>
                             </View>
                           </View>
+
+                          <View style={styles.cardItemResult}>
+                            
+                            <View style={{width: 30, height: 30, backgroundColor: '#EDEDED', borderRadius: 50, position: 'absolute', top: 50, right: 24, alignItems: 'center',}}>
+                              <Image source={require('../assets/img/icons/right-arrow-b.png')}  style={{width: 14, height: 14, resizeMode: 'contain', marginTop: 8}}/>
+                            </View>
+
+                            <Text style={{marginLeft: 24, fontSize: 18, color: '#164194', fontWeight: 'bold'}}>Intersport</Text>
+                            <Text style={{marginLeft: 24, fontSize: 16, color: '#164194'}}>https://intersport.fr/chauss...</Text>
+                            <View style={{marginLeft: 24, marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
+                              <Text style={{color: '#164194', fontSize: 16, fontWeight: 'bold'}}>89.99€</Text>
+                              <Text style={{color: '#E30612', fontSize: 16, fontWeight: 'bold', marginLeft: 12,}}>63.99€</Text>
+                            </View>
+
+                          </View>
+                          </>
                           ) : (
                             <>
                             <View style={styles.cardItemResult}>
@@ -768,9 +859,9 @@ export default class BarCodeScanner extends Component<Props, State> {
                       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
   
                         <View style={styles.releatedItemProduct}>
-                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
-                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
-                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                          <Image source={require('../assets/img/nikeorange.jpeg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Vaporfly</Text>
                         </View>
   
                         <View style={styles.releatedItemProduct}>
@@ -778,11 +869,11 @@ export default class BarCodeScanner extends Component<Props, State> {
                           <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
                           <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
                         </View>
-  
+
                         <View style={styles.releatedItemProduct}>
-                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
-                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
-                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                          <Image source={require('../assets/img/nikeorange.jpeg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Vaporfly</Text>
                         </View>
   
                         <View style={styles.releatedItemProduct}>
@@ -790,11 +881,11 @@ export default class BarCodeScanner extends Component<Props, State> {
                           <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
                           <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
                         </View>
-  
+
                         <View style={styles.releatedItemProduct}>
-                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
-                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
-                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                          <Image source={require('../assets/img/nikeorange.jpeg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Vaporfly</Text>
                         </View>
   
                         <View style={styles.releatedItemProduct}>
@@ -802,11 +893,11 @@ export default class BarCodeScanner extends Component<Props, State> {
                           <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
                           <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
                         </View>
-  
+
                         <View style={styles.releatedItemProduct}>
-                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
-                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
-                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
+                          <Image source={require('../assets/img/nikeorange.jpeg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
+                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike</Text>
+                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Vaporfly</Text>
                         </View>
   
                         <View style={styles.releatedItemProduct}>
@@ -814,18 +905,7 @@ export default class BarCodeScanner extends Component<Props, State> {
                           <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
                           <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
                         </View>
-  
-                        <View style={styles.releatedItemProduct}>
-                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
-                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
-                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
-                        </View>
-  
-                        <View style={styles.releatedItemProduct}>
-                          <Image source={require('../assets/img/product/stefan.jpg')}  style={{width:'100%', height: 100, resizeMode: 'cover', borderRadius: 24}} />
-                          <Text style={{fontSize: 16, color: 'black', marginTop: 12}}>Nike SB</Text>
-                          <Text style={{fontSize: 16, color: 'black', fontWeight: 'bold'}}>Stefan Janoski 2</Text>
-                        </View>
+
                         
                         </ScrollView>
   
@@ -973,6 +1053,28 @@ const styles = StyleSheet.create({
          flexDirection: 'row',
          alignItems: 'center',
          borderRadius: 60 
+       },
+       marginAvisTop: {
+         marginTop: 12,
+       }, 
+       textSelectedS: {
+        width: 100,
+        paddingTop:10,
+        paddingBottom: 10,
+        paddingLeft: 14,
+        paddingRight: 14,
+         color: 'white',
+         backgroundColor: '#5ACB38',
+         borderColor: 'rgba(0,0,0,0)',
+         borderRadius: 10.5,
+         shadowColor: "#000",
+         shadowOffset: {
+           width: 0,
+           height: 1,
+         },
+         shadowOpacity: 0.80,
+         shadowRadius: 1.41,
+         elevation: 2,
        },
        titleImageAfter: {
          color:'black',

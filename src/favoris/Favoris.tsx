@@ -269,10 +269,10 @@ export default class Favoris extends Component<Props, State> {
     <Image source={require('../assets/img/product/stefan.jpg')} style={styles.imageItem}/>
     <Image source={require('../assets/img/icons/coeur-rouge.png')} style={styles.imageCoeur}/>
 
-    <Text style={styles.titleItem}>Nike SB - Canvas</Text>
-    <Text style={styles.priceItem}>dès 46.90€</Text>
+    <Text style={styles.titleItem}>Nike - Vomero 10</Text>
+    <Text style={styles.priceItem}>dès 76.90€</Text>
     <View style={{justifyContent: 'flex-start', flexDirection: 'row'}}>
-        <Image source={require('../assets/img/icons/check-symbol.png')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
+        <Image source={require('../assets/img/Vomero.jpg')} style={{width: 12, height: 12, resizeMode: 'contain', position: 'relative', top: 12}}/>
         <Text style={{color: '#14448d', fontSize: 14, marginLeft: 6, fontWeight: 'bold', marginTop: 8}}>Livraison à domicile</Text>
     </View>
     </View>

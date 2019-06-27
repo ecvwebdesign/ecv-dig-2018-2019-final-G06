@@ -148,7 +148,7 @@ export default class Home extends Component<Props, State> {
                 <View style={{width: '80%', marginLeft: '10%',}}>
 
                   <Text style={styles.titleBlack}>Vos matches du jour !</Text>
-                  <Text style={styles.colorGrey}>Jetez un coup d'oeuil aux produits les plus suceptibles de vous plaire.</Text>
+                  <Text style={styles.colorGrey}>Jetez un coup d'oeil aux produits les plus suceptibles de vous plaire.</Text>
                   
                   <Carousel
                     ref={(c) => { this._carousel = c; }}
