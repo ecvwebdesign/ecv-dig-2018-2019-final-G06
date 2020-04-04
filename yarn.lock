@@ -941,9 +941,9 @@ acorn-walk@^6.0.1:
   integrity sha512-OtUw6JUTgxA2QoqqmrmQ7F2NYqiBPi/L2jqHyFtllhOUvXYQXf0Z1CYUinIfyT4bTCGmrA7gX9FvHA81uzCoVw==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1:
   version "6.1.1"
@@ -1866,6 +1866,11 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
+dooboolab-welcome@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/dooboolab-welcome/-/dooboolab-welcome-1.1.1.tgz#ca2184f6e1f568865d707a6ce3bda7e003550f54"
+  integrity sha512-tQ/9NBCGnalHwKOBjDqTD4t4wQpDfSSbxQGctzkzaLHR3AhN0wCBkIs05JciVtvl/jfLZ+DgAndktAMk3Bu7Vw==
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
@@ -2198,7 +2203,7 @@ fbjs-scripts@^1.0.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.9:
+fbjs@^0.8.4, fbjs@^0.8.9:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -4769,7 +4774,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.5.8, prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4835,6 +4840,14 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-addons-shallow-compare@15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz#198a00b91fc37623db64a28fd17b596ba362702f"
+  integrity sha1-GYoAuR/DdiPbZKKP0XtZa6NicC8=
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-clone-referenced-element@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-clone-referenced-element/-/react-clone-referenced-element-1.1.0.tgz#9cdda7f2aeb54fea791f3ab8c6ab96c7a77d0158"
@@ -4858,10 +4871,61 @@ react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-native-awesome-alerts@^1.2.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-awesome-alerts/-/react-native-awesome-alerts-1.3.1.tgz#2fbfaa64d547e426730ac80da94b2d94607bcd44"
+  integrity sha512-aRq/F2BCkor240PfRr3qtopInh/I+cPmdSYGodm6/G+QpGLNc31W4WT7bKJ0rWFv2M2yKWihqFucWSBoZhRaOA==
+  dependencies:
+    prop-types "^15.7.2"
+
+react-native-camera@^2.11.0:
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-2.11.2.tgz#4936bb0a484e8ba7d0b3ecf28fa7c161833b1ac0"
+  integrity sha512-9Fw5zpOJqaZOa/n1SUG141sbD5b77/EWSv0VTBvP66SneN4tuuS4tYtM0YndqF+BRlyAggjYGJPDs3L7BMYsmQ==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-image-picker@^0.28.1:
   version "0.28.1"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
   integrity sha512-CW2dm+cjsdW2fjBW2WD/cSufNG0x0UpljwGHrjSzyB0TckoW+tjYv44UWtckCWxr1JtCg+QrYDO/MzlRyFcjwQ==
+
+react-native-maps@^0.24.2:
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.24.2.tgz#19974f967cb0c2e24dab74ca879118e0932571b2"
+  integrity sha512-1iNIDikp2dkCG+8DguaEviYZiMSYyvwqYT7pO2YTZvuFRDSc/P9jXMhTUnSh4wNDlEeQ47OJ09l0pwWVBZ7wxg==
+
+react-native-onboarding-swiper@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-onboarding-swiper/-/react-native-onboarding-swiper-1.1.0.tgz#fb4c5a10fc91e3d2fe7fa2e9860b3e4e997e672a"
+  integrity sha512-hU3DkRlo5pR4A8mAdvwWULZrnZx6rfNiQsdwP7cLHZNGRIYBBX09CxVgI9NYDf0iiEWDGfZQzqNeUk1uSbpSEg==
+  dependencies:
+    tinycolor2 "^1.4.1"
+
+react-native-parallax-header@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-parallax-header/-/react-native-parallax-header-1.1.3.tgz#d02b6465ad02892832966f37af8e9148ed0f727d"
+  integrity sha512-gEnyNPyCv46aCn4PEky9h1SinxznxvcAsVmdFSUEqlZfBHCNtuvppWjkDkPRcKVCh3HmYwxX1N2VeWHAjppasw==
+
+react-native-snap-carousel@^3.8.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.9.0.tgz#017793ca3f5e901ccd5a3117d79bb18ec08928a3"
+  integrity sha512-XDCUNo0SXfHOCc/v1s96hzrf/N4lDBjXLZMNLLUeSkLsHlH2QryFyQKO48AI08fJmM5JBqGVwcJiF47aMWOmYQ==
+  dependencies:
+    prop-types "^15.6.1"
+    react-addons-shallow-compare "15.6.2"
+
+react-native-switch-toggle@^1.1.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-native-switch-toggle/-/react-native-switch-toggle-1.1.4.tgz#cd565e9db584109f93adde5c6979b2587cbc8cbc"
+  integrity sha512-TMCcZYAt4Rw33j/ZrHqEKr5BotJp+FYaMDzml75UQYDA7vHpnovmBp04RTU/4oimD8E0teIOauRNVtJLeNer+A==
+  dependencies:
+    dooboolab-welcome "^1.1.0"
+
+react-native-testfairy@^2.18.2:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/react-native-testfairy/-/react-native-testfairy-2.24.0.tgz#ec8b9bec866794c36d4de44eb019347b5ca8a7ea"
+  integrity sha512-OKN9NXmSU2NCqO3vgfxjWW7IE5aFBY2avx0JZuFUDBeS0ycoi0to2Pagz+asxAP/hKflHronvPmMzfW+8DQCMw==
 
 react-native@0.59.9:
   version "0.59.9"
@@ -5202,6 +5266,11 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
+
+rn-viewpager@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/rn-viewpager/-/rn-viewpager-1.2.9.tgz#7f06f898e23b296f3b5be7c98bd9101d94427779"
+  integrity sha512-wN4HlNhjTkrg25qBeEHTJ6TzRGtLu8SpKSZ9/mWcgWHMNr3RT06Zzrky3Tg14PPgaPp//6h02FCcAaQ83VGdgQ==
 
 rsvp@^3.3.3:
   version "3.6.2"
@@ -5731,6 +5800,11 @@ time-stamp@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/time-stamp/-/time-stamp-1.1.0.tgz#764a5a11af50561921b133f3b44e618687e0f5c3"
   integrity sha1-dkpaEa9QVhkhsTPztE5hhofg9cM=
+
+tinycolor2@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
+  integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
 tmp@^0.0.33:
   version "0.0.33"
